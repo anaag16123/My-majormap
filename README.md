@@ -1,1 +1,1 @@
-# my-majormap
+# My-majormap
