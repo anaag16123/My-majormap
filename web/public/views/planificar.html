@@ -1,0 +1,21 @@
+<section class="page-heading"><div><span class="eyebrow">DA EL SIGUIENTE PASO</span><h1>Un semestre a tu medida</h1><p>Encuentra combinaciones que respeten tus créditos y requisitos.</p></div></section>
+<div class="planner-layout">
+    <section class="planner-intro surface">
+        <span class="eyebrow">ANTES DE EMPEZAR</span><h2>Tu punto de partida</h2>
+        <p id="planner-summary" class="muted"></p>
+        <ol class="checklist"><li>Marca las materias que ya aprobaste.</li><li>Elige cuántas materias quieres cursar.</li><li>Define tu máximo de créditos y explora las propuestas.</li></ol>
+        <a class="text-link" href="#pensum">Actualizar mis aprobadas →</a>
+        <div class="notice"><strong>Recuerda</strong><p>Un prerrequisito debe estar aprobado antes. Un correquisito puede estar aprobado o incluido en tu propuesta.</p></div>
+    </section>
+    <form id="planner-form" class="surface planner-form">
+        <label for="course-count">Cantidad exacta de materias</label>
+        <p id="count-help" class="field-help">Cada propuesta tendrá exactamente esta cantidad.</p>
+        <input id="course-count" type="number" min="1" step="1" value="2" required aria-describedby="count-help">
+        <label for="credit-limit">Máximo de créditos</label>
+        <p id="credit-help" class="field-help">Puedes usar menos créditos, pero nunca superar este límite.</p>
+        <input id="credit-limit" type="number" min="1" max="2147483647" step="1" value="7" required aria-describedby="credit-help">
+        <button id="generate-button" class="button button-primary" type="submit">Encontrar mis opciones ↗</button>
+        <p class="field-help text-center">Las propuestas cambian cuando actualizas tus aprobadas.</p>
+    </form>
+</div>
+<section id="proposal-results" class="section" aria-live="polite" aria-busy="false"></section>

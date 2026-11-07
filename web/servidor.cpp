@@ -4,6 +4,7 @@
 #include "httplib.h"
 #include "Contexto.h"
 #include "RutasPensum.h"
+#include "RutasPropuestas.h"
 #include "../core/CargadorPensum.h"
 // Aqui se incluye el header de las rutas de cada integrante, ej. #include "RutasPropuestas.h"
 
@@ -46,7 +47,7 @@ int main() {
     // registrarRutasXxx(httplib::Server&, Contexto&) (ver RutasPensum.cpp de modelo)
     // y la registra aqui con una linea. Asi nadie toca el codigo de los demas.
     registrarRutasPensum(servidor, ctx);               // Ana: pensum y aprobadas
-    // registrarRutasPropuestas(servidor, ctx);        // Isa: DFS y backtracking (generar propuestas)
+    registrarRutasPropuestas(servidor, ctx);        // Isa: DFS y backtracking (generar propuestas)
     // registrarRutasPriorizacion(servidor, ctx);      // Wen: priorizacion / ordenar propuestas
     // registrarRutasSinSolucion(servidor, ctx);       // Samu: explicacion sin solucion y recalcular
     // Recuerda agregar tu .cpp al comando de compilacion.

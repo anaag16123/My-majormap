@@ -1,0 +1,22 @@
+<section class="page-heading">
+    <div><span class="eyebrow">EXPLORA TU CAMINO</span><h1>Mi plan de estudios</h1><p>Abre una materia para consultar su detalle y actualizar tu avance.</p></div>
+    <span id="semester-count" class="badge"></span>
+</section>
+<p id="catalog-note" class="notice"></p>
+<section class="surface filter-panel" aria-label="Buscar y filtrar materias">
+    <label class="search-field" for="course-search"><span aria-hidden="true">⌕</span><input id="course-search" type="search" placeholder="Buscar por nombre o código…"></label>
+    <div class="filter-buttons" role="group" aria-label="Estado de la materia">
+        <button type="button" data-filter="TODAS" aria-pressed="true">Todas</button>
+        <button type="button" data-filter="HABILITADA" aria-pressed="false">Habilitadas</button>
+        <button type="button" data-filter="APROBADA" aria-pressed="false">Aprobadas</button>
+        <button type="button" data-filter="BLOQUEADA" aria-pressed="false">Bloqueadas</button>
+    </div>
+</section>
+<div class="legend" aria-label="Leyenda de estados">
+    <span><i class="dot approved"></i>Aprobada</span>
+    <span><i class="dot available"></i>Habilitada</span>
+    <span><i class="dot locked"></i>Bloqueada</span>
+    <p>Una materia habilitada puede necesitar correquisitos en la misma propuesta.</p>
+</div>
+<p id="search-summary" class="muted small" role="status"></p>
+<div id="semester-grid" class="semester-grid"></div>
