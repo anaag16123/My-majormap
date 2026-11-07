@@ -1,1 +1,4 @@
 *.exe
+/build/
+.DS_Store
+/web/public_anterior/

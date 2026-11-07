@@ -1,0 +1,197 @@
+/* Adaptación a tablet y celular. La navegación sigue accesible. */
+@media (max-width: 1000px) {
+    .hero {
+        gap: 25px;
+        padding: 34px;
+    }
+
+    .hero-card {
+        padding: 25px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .semester-grid,
+    .proposal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filter-panel {
+        flex-wrap: wrap;
+    }
+
+    .search-field {
+        max-width: none;
+        flex-basis: 100%;
+    }
+
+    .main-nav a {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 74px;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .brand-mark {
+        width: 38px;
+        height: 38px;
+        font-size: 22px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        padding: 0 0 15px;
+    }
+
+    .main-nav.is-open {
+        display: flex;
+    }
+
+    .main-nav a {
+        padding: 11px 14px;
+        font-size: 13px;
+    }
+
+    .context-bar > p {
+        display: none;
+    }
+
+    .context-bar label {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .context-bar select {
+        max-width: 80%;
+    }
+
+    .hero {
+        display: block;
+        padding: 30px;
+    }
+
+    .hero-card {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .steps-grid,
+    .planner-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-intro,
+    .planner-form {
+        padding: 25px;
+    }
+
+    .legend p {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .semester-grid,
+    .proposal-grid,
+    .help-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        padding: 17px;
+    }
+
+    .metric-value {
+        font-size: 28px;
+    }
+
+    .metrics-grid {
+        gap: 11px;
+    }
+
+    .hero {
+        padding: 26px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .button-row .button {
+        width: 100%;
+    }
+
+    .filter-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-buttons button {
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .alert {
+        align-items: flex-start;
+    }
+
+    dialog {
+        padding: 22px;
+    }
+
+    .pagination {
+        gap: 10px;
+    }
+
+    .pagination .button {
+        padding: 10px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}

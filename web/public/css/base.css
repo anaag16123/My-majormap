@@ -1,0 +1,149 @@
+/* Variables de diseño, normalización y elementos compartidos. */
+:root {
+    --color-background: #f6f7fc;
+    --color-surface: #ffffff;
+    --color-text: #252b45;
+    --color-muted: #626b82;
+    --color-purple: #6652bd;
+    --color-blue: #4276cc;
+    --color-border: #e3e6f1;
+    --color-purple-soft: #eeeafb;
+    --color-blue-soft: #eaf2ff;
+    --shadow-soft: 0 8px 30px #303b670b;
+    --radius-card: 20px;
+    --radius-control: 11px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 105px;
+}
+
+body {
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+a,
+input,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.55;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: clamp(30px, 3vw, 43px);
+    letter-spacing: -1.4px;
+}
+
+h2 {
+    font-size: 25px;
+    letter-spacing: -0.7px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.muted,
+.field-help {
+    color: var(--color-muted);
+}
+
+.small,
+.field-help {
+    font-size: 12px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.eyebrow {
+    color: var(--color-purple);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.text-link {
+    color: var(--color-purple);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 20px;
+    z-index: 20;
+    padding: 12px;
+    background: white;
+    border-radius: var(--radius-control);
+}
+
+.skip-link:focus {
+    top: 10px;
+}

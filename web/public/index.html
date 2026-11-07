@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My MajorMap</title>
-<link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#6652bd">
+    <title>My MajorMap · Tu ruta académica</title>
+    <link rel="stylesheet" href="estilos.css?v=3">
+    <script defer src="bootstrap.js?v=4"></script>
 </head>
 <body>
-<h1>My MajorMap</h1>
-
-<!-- Selector simple de carrera (Lau lo mejora despues) -->
-<label>Carrera: <select id="carrera"></select></label>
-
-<p>Clic en una materia para marcarla/desmarcarla como aprobada.
-  <span class="leyenda aprobada">Aprobada</span>
-  <span class="leyenda habilitada">Habilitada</span>
-  <span class="leyenda bloqueada">Bloqueada</span>
-</p>
-
-<!-- Pensum por semestres (Ana). app.js dibuja aqui las columnas. -->
-<main id="pensum"></main>
-<p id="mensaje" class="mensaje"></p>
-
-<!-- ESPACIOS PARA LOS DEMAS (agregar debajo, cada uno en su seccion):
-     Isa:  formulario de cantidad de materias / exigencia y boton "Generar propuestas"
-     Wen:  lista de propuestas priorizadas y estilo visual final
-     Wen/Isa: detalle de una materia (prerrequisitos, correquisitos)
-     Samu: mensaje cuando no hay solucion y boton "recalcular"
--->
-<section id="zona-formulario"><!-- Isa --></section>
-<section id="zona-propuestas"><!-- Wen --></section>
-<section id="zona-detalle"><!-- detalle de materia --></section>
-<section id="zona-sin-solucion"><!-- Samu --></section>
-<script src="app.js"></script>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="navbar container">
+            <a class="brand" href="#inicio" aria-label="My MajorMap, inicio">
+                <span class="brand-mark" aria-hidden="true">M</span>
+                <span>My MajorMap<small>Tu ruta académica</small></span>
+            </a>
+            <button id="menu-toggle" class="menu-toggle" type="button"
+                aria-controls="main-nav" aria-expanded="false">Menú ☰</button>
+            <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+                <a href="#inicio" data-route="inicio">Inicio</a>
+                <a href="#pensum" data-route="pensum">Mi pensum</a>
+                <a href="#planificar" data-route="planificar">Planear semestre</a>
+                <a href="#ayuda" data-route="ayuda">Ayuda</a>
+            </nav>
+        </div>
+    </header>
+    <div class="context-bar container">
+        <p><span class="context-dot" aria-hidden="true"></span> Tu espacio para avanzar</p>
+        <label for="career-select">Carrera
+            <select id="career-select" disabled><option>Cargando carreras…</option></select>
+        </label>
+    </div>
+    <div id="app-status" class="container" role="status" aria-live="polite"></div>
+    <main id="contenido" class="container page-content" tabindex="-1" aria-busy="true">
+        <p class="loading-state">Preparando tu ruta académica…</p>
+    </main>
+    <footer class="site-footer container">
+        <strong>My MajorMap</strong><span>Una materia a la vez. Un paso más cerca.</span>
+    </footer>
+    <div id="dialog-container"></div>
 </body>
 </html>
