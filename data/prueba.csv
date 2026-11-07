@@ -1,0 +1,11 @@
+codigo;nombre;semestre;creditos;dificultad;prerrequisitos;correquisitos
+CAL1;Calculo I;1;4;4;;
+INTRO;Fundamentos de programacion;1;3;3;;
+LOG;Logica;1;3;2;;
+CAL2;Calculo II;2;4;4;CAL1;
+POO;Programacion orientada a objetos;2;3;3;INTRO;
+FIS1;Fisica I;2;3;4;CAL1;LABF1
+LABF1;Laboratorio de fisica I;2;1;2;;FIS1
+ED;Estructuras de datos;3;3;4;POO;
+DISC;Matematicas discretas;3;3;3;LOG;
+ADA;Analisis y diseno de algoritmos;4;3;5;ED,DISC;
