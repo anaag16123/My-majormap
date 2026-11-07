@@ -45,8 +45,16 @@ export const api = {
         return requestJson(url, { method: "POST" });
     },
 
-    getProposals(career, quantity, credits) {
+    getProposals(career, quantity, credits, preference) {
         return requestJson(endpoint("/api/propuestas", {
+            carrera: career,
+            cantidad: quantity,
+            creditos: credits,
+            preferencia: preference
+        }));
+    },
+    getBlocking(career, quantity, credits) {
+        return requestJson(endpoint("/api/bloqueo", {
             carrera: career,
             cantidad: quantity,
             creditos: credits

@@ -1,6 +1,6 @@
 import { api, loadTemplate } from "./api.js";
 import { byId, createElement, createEmptyState, showMessage } from "./dom.js";
-import { state, createPlanningState } from "./state.js";
+import { state, createPlanningState, PREFERENCES } from "./state.js";
 import { currentRoute, initializeNavigation } from "./navigation.js";
 import { initializeDetails } from "./details.js";
 import { mountHome } from "./views/home.js";
@@ -26,6 +26,7 @@ function invalidateProposals() {
     ++proposalRequest;
     Object.assign(state.planning, {
         proposals: null,
+        blocking: null,
         page: 0,
         loading: false,
         error: ""
@@ -34,7 +35,7 @@ function invalidateProposals() {
 
 function updateVisiblePlanner() {
     if (mountedRoute === "planificar") {
-        updatePlanner(state.planning, changeProposalPage);
+        updatePlanner(state.planning, changeProposalPage, applyAlternative);
     }
 }
 
@@ -44,10 +45,47 @@ function changeProposalPage(page) {
     byId("proposal-results").scrollIntoView({ block: "start" });
 }
 
-function changeParameters(parameters) {
+// Samu: recalcular. Una vez que el estudiante pidió propuestas, se vuelven a
+// calcular solas al cambiar aprobadas, cantidad, créditos o preferencia.
+const RECALCULATE_DELAY = 350;
+let recalculateTimer = null;
+
+function recalculateProposals() {
+    clearTimeout(recalculateTimer);
+    if (!state.planning.requested) return;
+    if (state.planning.loading) {
+        // Se descarta la consulta en curso; quedó con parámetros viejos.
+        ++proposalRequest;
+        state.planning.loading = false;
+    }
+    const { quantity, credits, preference } = state.planning;
+    generateProposals({ quantity, credits, preference }, { automatic: true });
+}
+
+function changeParameters(parameters, valid = true) {
     Object.assign(state.planning, parameters);
+    clearTimeout(recalculateTimer);
+    if (state.planning.requested && valid) {
+        // Se espera a que el estudiante termine de escribir antes de consultar.
+        if (state.planning.loading) {
+            ++proposalRequest;
+            state.planning.loading = false;
+            updateVisiblePlanner();
+        }
+        recalculateTimer = setTimeout(recalculateProposals, RECALCULATE_DELAY);
+        return;
+    }
     invalidateProposals();
     updateVisiblePlanner();
+}
+
+function applyAlternative({ quantity, credits }) {
+    clearTimeout(recalculateTimer);
+    if (state.planning.loading) {
+        ++proposalRequest;
+        state.planning.loading = false;
+    }
+    generateProposals({ quantity, credits, preference: state.planning.preference });
 }
 
 async function renderRoute(route = currentRoute(), moveFocus = false) {
@@ -89,7 +127,8 @@ async function renderRoute(route = currentRoute(), moveFocus = false) {
             mountPlanner(state.pensum, state.planning, {
                 onGenerate: generateProposals,
                 onParametersChange: changeParameters,
-                onPageChange: changeProposalPage
+                onPageChange: changeProposalPage,
+                onApplyAlternative: applyAlternative
             });
         }
 
@@ -157,6 +196,7 @@ async function toggleApproved(course) {
     state.updating = true;
     byId("career-select").disabled = true;
     const revision = state.revision;
+    let approvedChanged = false;
 
     try {
         const pensum = await api.setApproved(course.career, course.codigo, course.estado !== "APROBADA");
@@ -167,7 +207,10 @@ async function toggleApproved(course) {
         invalidateProposals();
         details.close();
         await renderRoute();
-        showMessage("Tu avance se actualizó. Las materias habilitadas se recalcularon.", "success");
+        showMessage(state.planning.requested
+            ? "Tu avance se actualizó. Las materias habilitadas y tus propuestas se recalcularon."
+            : "Tu avance se actualizó. Las materias habilitadas se recalcularon.", "success");
+        approvedChanged = true;
     } catch (error) {
         showMessage(error.message);
         throw error; // El diálogo muestra el error y vuelve a habilitar el botón.
@@ -175,28 +218,48 @@ async function toggleApproved(course) {
         state.updating = false;
         byId("career-select").disabled = false;
     }
+    // Samu: con las nuevas aprobadas se recalculan las propuestas que ya se habían pedido.
+    if (approvedChanged) recalculateProposals();
 }
 
-async function generateProposals({ quantity, credits }) {
+// automatic = true cuando lo dispara el recalcular: no borra avisos ni mueve la página.
+async function generateProposals({ quantity, credits, preference = state.planning.preference }, { automatic = false } = {}) {
     if (!state.pensum || state.updating || state.planning.loading) return;
     const maxInteger = 2147483647;
     if (!Number.isInteger(quantity) || !Number.isInteger(credits) ||
         quantity <= 0 || credits <= 0 || quantity > maxInteger || credits > maxInteger) {
-        showMessage("Escribe una cantidad y unos créditos enteros positivos válidos.");
+        if (!automatic) showMessage("Escribe una cantidad y unos créditos enteros positivos válidos.");
         return;
     }
+    if (!PREFERENCES.includes(preference)) preference = PREFERENCES[0];
 
+    clearTimeout(recalculateTimer);
     const requestId = ++proposalRequest;
     const revision = state.revision;
     const career = state.pensum.carrera;
-    Object.assign(state.planning, { quantity, credits, proposals: null, page: 0, loading: true, error: "" });
+    Object.assign(state.planning, {
+        quantity, credits, preference, requested: true,
+        proposals: null, blocking: null, page: 0, loading: true, error: ""
+    });
     updateVisiblePlanner();
-    showMessage("");
+    if (!automatic) showMessage("");
 
     try {
-        const result = await api.getProposals(career, quantity, credits);
+        const result = await api.getProposals(career, quantity, credits, preference);
         if (requestId !== proposalRequest || revision !== state.revision) return;
+        let blocking = null;
+        if (!result.propuestas.length) {
+            // Samu: sin propuestas se pide la explicación del bloqueo y las alternativas.
+            // Si esta consulta falla, la vista muestra el mensaje general.
+            try {
+                blocking = await api.getBlocking(career, quantity, credits);
+            } catch {
+                blocking = null;
+            }
+            if (requestId !== proposalRequest || revision !== state.revision) return;
+        }
         state.planning.proposals = result.propuestas;
+        state.planning.blocking = blocking;
     } catch (error) {
         if (requestId !== proposalRequest || revision !== state.revision) return;
         state.planning.error = error.message;
@@ -204,7 +267,7 @@ async function generateProposals({ quantity, credits }) {
         if (requestId === proposalRequest && revision === state.revision) {
             state.planning.loading = false;
             updateVisiblePlanner();
-            if (mountedRoute === "planificar") byId("proposal-results").scrollIntoView({ block: "start" });
+            if (!automatic && mountedRoute === "planificar") byId("proposal-results").scrollIntoView({ block: "start" });
         }
     }
 }

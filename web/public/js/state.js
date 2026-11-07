@@ -1,9 +1,15 @@
 /** Estado compartido y cálculos puros, sin acceso al DOM ni a la red. */
+// Valores del parámetro "preferencia" acordados con Wen. El primero es el predeterminado.
+export const PREFERENCES = ["suave", "exigente"];
+
 export function createPlanningState() {
     return {
         quantity: 2,
         credits: 7,
+        preference: PREFERENCES[0],
+        requested: false, // true después de pedir propuestas: activa el recalcular
         proposals: null,
+        blocking: null,
         page: 0,
         loading: false,
         error: ""

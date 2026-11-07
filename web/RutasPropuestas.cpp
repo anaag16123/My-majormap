@@ -69,6 +69,12 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
         } catch (const std::exception&) {
             return error(res, 400, "Cantidad y creditos deben ser enteros positivos validos");
         }
+        // Samu (recalcular): preferencia acordada con Wen. Opcional, por defecto "suave".
+        // Wen usa este valor para ordenar las propuestas.
+        const std::string preferencia = req.has_param("preferencia") ? req.get_param_value("preferencia") : "suave";
+        if (preferencia != "suave" && preferencia != "exigente") {
+            return error(res, 400, "La preferencia debe ser suave o exigente");
+        }
         Grafo grafo;
         { // Copia consistente: la busqueda no bloquea las otras rutas.
             std::lock_guard<std::mutex> lock(ctx.candado);
@@ -79,7 +85,8 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
         try {
             const auto propuestas = Planificador::generar(grafo, cantidad, creditos);
             std::ostringstream json;
-            json << "{\"cantidad\":" << cantidad << ",\"maxCreditos\":" << creditos << ",\"propuestas\":[";
+            json << "{\"cantidad\":" << cantidad << ",\"maxCreditos\":" << creditos
+                 << ",\"preferencia\":\"" << preferencia << "\",\"propuestas\":[";
             for (std::size_t i = 0; i < propuestas.size(); ++i) {
                 if (i) json << ',';
                 json << "{\"creditos\":" << propuestas[i].creditos

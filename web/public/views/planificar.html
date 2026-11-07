@@ -14,8 +14,15 @@
         <label for="credit-limit">Máximo de créditos</label>
         <p id="credit-help" class="field-help">Puedes usar menos créditos, pero nunca superar este límite.</p>
         <input id="credit-limit" type="number" min="1" max="2147483647" step="1" value="7" required aria-describedby="credit-help">
+        <!-- Samu (HU2): control mínimo para el recalcular. Wen puede rediseñarlo; se debe mantener id="preference" y los valores suave/exigente. -->
+        <label for="preference">Preferencia</label>
+        <p id="preference-help" class="field-help">Suave prioriza menos carga. Exigente prioriza más dificultad o materias que desbloquean más.</p>
+        <select id="preference" aria-describedby="preference-help">
+            <option value="suave">Suave</option>
+            <option value="exigente">Exigente</option>
+        </select>
         <button id="generate-button" class="button button-primary" type="submit">Encontrar mis opciones ↗</button>
-        <p class="field-help text-center">Las propuestas cambian cuando actualizas tus aprobadas.</p>
+        <p class="field-help text-center">Después de buscar, las propuestas se recalculan solas si cambias tus aprobadas, la cantidad, los créditos o la preferencia.</p>
     </form>
 </div>
 <section id="proposal-results" class="section" aria-live="polite" aria-busy="false"></section>

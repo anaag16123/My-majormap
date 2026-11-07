@@ -22,7 +22,79 @@ function createProposal(proposal, number) {
     return card;
 }
 
-export function updatePlanner(planning, onPageChange) {
+function plural(count, singular, several) {
+    return `${count} ${count === 1 ? singular : several}`;
+}
+
+// Samu: mensaje de bloqueo con la causa, las alternativas cercanas y las habilitadas.
+function createBlocking(blocking, onApplyAlternative) {
+    const panel = createElement("article", "surface blocking-panel");
+    panel.append(
+        createElement("span", "eyebrow", "SIN COMBINACIONES"),
+        createElement("h3", "", "No hay propuestas con estos límites"),
+        createElement("p", "blocking-reason", blocking.explicacion)
+    );
+
+    const columns = createElement("div", "blocking-columns");
+
+    const options = createElement("section");
+    options.append(createElement("h4", "", "Lo más cercano que sí funciona"));
+    if (blocking.alternativas.length) {
+        const list = createElement("ul", "blocking-list");
+        for (const alternative of blocking.alternativas) {
+            const item = createElement("li");
+            const label = createElement("span", "blocking-option");
+            label.append(
+                createElement("span", "", alternative.descripcion),
+                createElement("span", "badge",
+                    `${plural(alternative.cantidad, "materia", "materias")} · máx. ${alternative.maxCreditos} cr`)
+            );
+            item.append(label);
+            if (onApplyAlternative) {
+                // Samu (HU2): aplicar la alternativa con un clic y recalcular.
+                const apply = createElement("button", "button button-secondary", "Usar esta opción");
+                apply.type = "button";
+                apply.addEventListener("click", () => {
+                    byId("course-count").value = alternative.cantidad;
+                    byId("credit-limit").value = alternative.maxCreditos;
+                    onApplyAlternative({ quantity: alternative.cantidad, credits: alternative.maxCreditos });
+                });
+                item.append(apply);
+            }
+            list.append(item);
+        }
+        options.append(list);
+    } else {
+        options.append(createElement("p", "muted small",
+            `No encontramos una alternativa dentro del tope de ${blocking.topeCreditos} créditos por semestre.`));
+    }
+    const link = createElement("a", "text-link", "Actualizar mis aprobadas →");
+    link.href = "#pensum";
+    options.append(link);
+    columns.append(options);
+
+    const available = createElement("section");
+    available.append(createElement("h4", "", `Materias habilitadas (${blocking.habilitadas.length})`));
+    if (blocking.habilitadas.length) {
+        const list = createElement("ul", "blocking-list");
+        for (const course of blocking.habilitadas) {
+            const item = createElement("li");
+            const label = createElement("span");
+            label.append(createElement("b", "", course.codigo), document.createTextNode(course.nombre));
+            item.append(label, createElement("small", "", `${course.creditos} cr`));
+            list.append(item);
+        }
+        available.append(list);
+    } else {
+        available.append(createElement("p", "muted small", "Ahora mismo no tienes materias habilitadas."));
+    }
+    columns.append(available);
+
+    panel.append(columns);
+    return panel;
+}
+
+export function updatePlanner(planning, onPageChange, onApplyAlternative = null) {
     const host = byId("proposal-results");
     const button = byId("generate-button");
     button.disabled = planning.loading;
@@ -54,7 +126,8 @@ export function updatePlanner(planning, onPageChange) {
     host.append(heading);
 
     if (!planning.proposals.length) {
-        host.append(createEmptyState(
+        // Samu: explicación del bloqueo. Sin diagnóstico se mantiene el mensaje general.
+        host.append(planning.blocking?.bloqueado ? createBlocking(planning.blocking, onApplyAlternative) : createEmptyState(
             "Probemos con otra carga",
             "No hay combinaciones con estos límites. Prueba una cantidad menor, más créditos o revisa tus aprobadas y correquisitos."
         ));
@@ -87,24 +160,31 @@ export function updatePlanner(planning, onPageChange) {
 export function mountPlanner(pensum, planning, handlers) {
     const summary = summarize(pensum);
     byId("planner-summary").textContent = `${summary.approved} materias aprobadas y ${summary.available} habilitadas en tu catálogo actual.`;
+    const form = byId("planner-form");
     const count = byId("course-count");
     const credits = byId("credit-limit");
+    const preference = byId("preference");
     count.value = planning.quantity;
     credits.value = planning.credits;
+    preference.value = planning.preference;
     count.max = Math.max(summary.total, 1);
 
     function readParameters() {
-        return { quantity: Number(count.value), credits: Number(credits.value) };
+        return { quantity: Number(count.value), credits: Number(credits.value), preference: preference.value };
     }
 
+    // Samu (HU2): el segundo argumento indica si los valores son válidos para recalcular.
     [count, credits].forEach(input => input.addEventListener("input", () => {
-        handlers.onParametersChange(readParameters());
+        handlers.onParametersChange(readParameters(), form.checkValidity());
     }));
-
-    byId("planner-form").addEventListener("submit", event => {
-        event.preventDefault();
-        if (byId("planner-form").reportValidity()) handlers.onGenerate(readParameters());
+    preference.addEventListener("change", () => {
+        handlers.onParametersChange(readParameters(), form.checkValidity());
     });
 
-    updatePlanner(planning, handlers.onPageChange);
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        if (form.reportValidity()) handlers.onGenerate(readParameters());
+    });
+
+    updatePlanner(planning, handlers.onPageChange, handlers.onApplyAlternative);
 }
