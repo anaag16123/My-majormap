@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My MajorMap</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<h1>My MajorMap</h1>
+
+<!-- Selector simple de carrera (Lau lo mejora despues) -->
+<label>Carrera: <select id="carrera"></select></label>
+
+<p>Clic en una materia para marcarla/desmarcarla como aprobada.
+   Colores: verde = aprobada, amarillo = habilitada, gris = bloqueada.</p>
+
+<!-- Pensum por semestres (Ana). app.js dibuja aqui las columnas. -->
+<main id="pensum"></main>
+<p id="mensaje" class="mensaje"></p>
+
+<!-- ESPACIOS PARA LOS DEMAS (agregar debajo, cada uno en su seccion):
+     Isa:  formulario de cantidad de materias / exigencia y boton "Generar propuestas"
+     Wen:  lista de propuestas priorizadas y estilo visual final
+     Wen/Isa: detalle de una materia (prerrequisitos, correquisitos)
+     Samu: mensaje cuando no hay solucion y boton "recalcular"
+-->
+<section id="zona-formulario"><!-- Isa --></section>
+<section id="zona-propuestas"><!-- Wen --></section>
+<section id="zona-detalle"><!-- detalle de materia --></section>
+<section id="zona-sin-solucion"><!-- Samu --></section>
+<script src="app.js"></script>
+</body>
+</html>
