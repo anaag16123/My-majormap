@@ -27,7 +27,7 @@ const std::vector<std::string>& Materia::getCorrequisitos() const { return corre
 
 std::string Materia::toString() const {
     return codigo + " - " + nombre +
-           " (sem " + std::to_string(semestre) +
-           ", " + std::to_string(creditos) + " cred" +
-           ", dif " + std::to_string(dificultad) + ")";
+           " | Semestre " + std::to_string(semestre) +
+           " | " + std::to_string(creditos) + " creditos" +
+           " | Dificultad " + std::to_string(dificultad) + "/5";
 }
