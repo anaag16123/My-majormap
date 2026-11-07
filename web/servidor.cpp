@@ -5,6 +5,7 @@
 #include "Contexto.h"
 #include "RutasPensum.h"
 #include "RutasPropuestas.h"
+#include "RutasSinSolucion.h"
 #include "../core/CargadorPensum.h"
 // Aqui se incluye el header de las rutas de cada integrante, ej. #include "RutasPropuestas.h"
 
@@ -49,7 +50,7 @@ int main() {
     registrarRutasPensum(servidor, ctx);               // Ana: pensum y aprobadas
     registrarRutasPropuestas(servidor, ctx);        // Isa: DFS y backtracking (generar propuestas)
     // registrarRutasPriorizacion(servidor, ctx);      // Wen: priorizacion / ordenar propuestas
-    // registrarRutasSinSolucion(servidor, ctx);       // Samu: explicacion sin solucion y recalcular
+    registrarRutasSinSolucion(servidor, ctx);         // Samu: explicacion sin solucion y recalcular
     // Recuerda agregar tu .cpp al comando de compilacion.
 
     std::cout << "My MajorMap en http://localhost:8080  (Ctrl+C para cerrar)\n";
