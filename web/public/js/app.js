@@ -177,24 +177,23 @@ async function toggleApproved(course) {
     }
 }
 
-async function generateProposals({ quantity, credits }) {
+async function generateProposals({ quantity, credits, esExigente = false, mode = "suave" }) {
     if (!state.pensum || state.updating || state.planning.loading) return;
-    const maxInteger = 2147483647;
     if (!Number.isInteger(quantity) || !Number.isInteger(credits) ||
-        quantity <= 0 || credits <= 0 || quantity > maxInteger || credits > maxInteger) {
-        showMessage("Escribe una cantidad y unos créditos enteros positivos válidos.");
+        quantity <= 0 || credits <= 0 || credits > 24) {
+        showMessage("Escribe una cantidad positiva y un máximo de hasta 24 créditos.");
         return;
     }
 
     const requestId = ++proposalRequest;
     const revision = state.revision;
     const career = state.pensum.carrera;
-    Object.assign(state.planning, { quantity, credits, proposals: null, page: 0, loading: true, error: "" });
+    Object.assign(state.planning, { quantity, credits, esExigente, mode, proposals: null, page: 0, loading: true, error: "" });
     updateVisiblePlanner();
     showMessage("");
 
     try {
-        const result = await api.getProposals(career, quantity, credits);
+        const result = await api.getProposals(career, quantity, credits, esExigente);
         if (requestId !== proposalRequest || revision !== state.revision) return;
         state.planning.proposals = result.propuestas;
     } catch (error) {

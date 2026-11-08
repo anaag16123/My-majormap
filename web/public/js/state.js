@@ -2,7 +2,9 @@
 export function createPlanningState() {
     return {
         quantity: 2,
-        credits: 7,
+        credits: 18,
+        mode: "suave",
+        esExigente: false,
         proposals: null,
         page: 0,
         loading: false,

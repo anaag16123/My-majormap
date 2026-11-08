@@ -62,5 +62,29 @@ int main() {
     lanzo = false;
     try { Planificador::desbloqueadas(g, "NO_EXISTE"); } catch (const std::invalid_argument&) { lanzo = true; }
     assert(lanzo);
+
+    // Pruebas del método ordenarPropuestas (suave vs exigente)
+    Materia mFacil("M1", "Materia Facil", 1, 2, 1, {}, {});
+    Materia mMedia("M2", "Materia Media", 1, 3, 3, {}, {});
+    Materia mDificil("M3", "Materia Dificil", 1, 4, 5, {}, {});
+
+    Propuesta p1 = {{mFacil}, 2};   // Dificultad: 1, Créditos: 2
+    Propuesta p2 = {{mMedia}, 3};   // Dificultad: 3, Créditos: 3
+    Propuesta p3 = {{mDificil}, 4}; // Dificultad: 5, Créditos: 4
+
+    std::vector<Propuesta> lista = {p2, p3, p1};
+
+    // Modo suave (esExigente = false): menor dificultad a mayor (p1, p2, p3)
+    Planificador::ordenarPropuestas(lista, false);
+    assert(lista[0].materias[0].getCodigo() == "M1");
+    assert(lista[1].materias[0].getCodigo() == "M2");
+    assert(lista[2].materias[0].getCodigo() == "M3");
+
+    // Modo exigente (esExigente = true): mayor dificultad a menor (p3, p2, p1)
+    Planificador::ordenarPropuestas(lista, true);
+    assert(lista[0].materias[0].getCodigo() == "M3");
+    assert(lista[1].materias[0].getCodigo() == "M2");
+    assert(lista[2].materias[0].getCodigo() == "M1");
+
     std::cout << "Todas las pruebas del planificador pasaron.\n";
 }
