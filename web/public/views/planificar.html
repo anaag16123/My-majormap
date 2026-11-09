@@ -10,19 +10,23 @@
     <form id="planner-form" class="surface planner-form">
         <label for="course-count">Cantidad exacta de materias</label>
         <p id="count-help" class="field-help">Cada propuesta tendrá exactamente esta cantidad.</p>
-        <input id="course-count" type="number" min="1" step="1" value="2" required aria-describedby="count-help">
-        <label for="credit-limit">Máximo de créditos</label>
-        <p id="credit-help" class="field-help">Puedes usar menos créditos, pero nunca superar este límite.</p>
-        <input id="credit-limit" type="number" min="1" max="2147483647" step="1" value="7" required aria-describedby="credit-help">
-        <!-- Samu (HU2): control mínimo para el recalcular. Wen puede rediseñarlo; se debe mantener id="preference" y los valores suave/exigente. -->
-        <label for="preference">Preferencia</label>
-        <p id="preference-help" class="field-help">Suave prioriza menos carga. Exigente prioriza más dificultad o materias que desbloquean más.</p>
-        <select id="preference" aria-describedby="preference-help">
-            <option value="suave">Suave</option>
-            <option value="exigente">Exigente</option>
+        <input id="course-count" name="cantidad" type="number" min="1" step="1" value="2" required aria-describedby="count-help">
+        
+        <label for="credit-limit">Máximo de créditos (hasta 24)</label>
+        <p id="credit-help" class="field-help">Puedes usar menos créditos, pero nunca superar este límite (máx. 24).</p>
+        <input id="credit-limit" name="creditos" type="number" min="1" max="24" step="1" value="18" required aria-describedby="credit-help">
+        
+        <label for="preference-mode">Preferencia de carga académica</label>
+        <p id="preference-help" class="field-help">Define el criterio de ordenamiento de tus combinaciones.</p>
+        <select id="preference-mode" name="preferencia" required aria-describedby="preference-help">
+            <option value="suave" selected>Modo Suave (menor dificultad y créditos)</option>
+            <option value="exigente">Modo Exigente (mayor dificultad y reto académico)</option>
         </select>
-        <button id="generate-button" class="button button-primary" type="submit">Encontrar mis opciones ↗</button>
-        <p class="field-help text-center">Después de buscar, las propuestas se recalculan solas si cambias tus aprobadas, la cantidad, los créditos o la preferencia.</p>
+
+        <button id="generate-button" class="button button-primary" type="submit">Generar propuestas ↗</button>
+        <p class="field-help text-center">Después de generar, las propuestas se recalculan solas si cambias tus aprobadas, la cantidad, los créditos o la preferencia.</p>
     </form>
 </div>
-<section id="proposal-results" class="section" aria-live="polite" aria-busy="false"></section>
+<section id="proposal-results" class="section" aria-live="polite" aria-busy="false">
+    <div id="lista-propuestas" class="proposal-grid"></div>
+</section>

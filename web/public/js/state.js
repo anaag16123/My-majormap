@@ -1,15 +1,13 @@
 /** Estado compartido y cálculos puros, sin acceso al DOM ni a la red. */
-// Valores del parámetro "preferencia" acordados con Wen. El primero es el predeterminado.
-export const PREFERENCES = ["suave", "exigente"];
-
 export function createPlanningState() {
     return {
         quantity: 2,
-        credits: 7,
-        preference: PREFERENCES[0],
-        requested: false, // true después de pedir propuestas: activa el recalcular
+        credits: 18,
+        mode: "suave",
+        esExigente: false,
+        requested: false, // Samu: true después de pedir propuestas; activa el recalcular
         proposals: null,
-        blocking: null,
+        blocking: null,   // Samu: diagnóstico de /api/bloqueo cuando no hay propuestas
         page: 0,
         loading: false,
         error: ""

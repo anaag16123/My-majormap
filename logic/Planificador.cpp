@@ -1,4 +1,5 @@
 #include "Planificador.h"
+#include <algorithm>
 #include <functional>
 #include <stack>
 #include <stdexcept>
@@ -72,3 +73,43 @@ std::vector<Propuesta> Planificador::generar(const Grafo& grafo, int cantidad, i
     buscar(0, 0);
     return resultado;
 }
+
+void Planificador::ordenarPropuestas(std::vector<Propuesta>& propuestas, bool esExigente) {
+    // Calcula la dificultad acumulada de todas las materias que componen la propuesta
+    auto calcularDificultadTotal = [](const Propuesta& p) {
+        int suma = 0;
+        for (const Materia& m : p.materias) {
+            suma += m.getDificultad();
+        }
+        return suma;
+    };
+
+    if (esExigente) {
+        // Modo exigente: ordena de mayor a menor dificultad total.
+        // Criterio de desempate: mayor cantidad de créditos.
+        std::stable_sort(propuestas.begin(), propuestas.end(),
+            [&](const Propuesta& a, const Propuesta& b) {
+                int difA = calcularDificultadTotal(a);
+                int difB = calcularDificultadTotal(b);
+                if (difA != difB) {
+                    return difA > difB;
+                }
+                return a.creditos > b.creditos;
+            }
+        );
+    } else {
+        // Modo suave: ordena de menor a mayor dificultad total (menor carga académica).
+        // Criterio de desempate: menor cantidad de créditos.
+        std::stable_sort(propuestas.begin(), propuestas.end(),
+            [&](const Propuesta& a, const Propuesta& b) {
+                int difA = calcularDificultadTotal(a);
+                int difB = calcularDificultadTotal(b);
+                if (difA != difB) {
+                    return difA < difB;
+                }
+                return a.creditos < b.creditos;
+            }
+        );
+    }
+}
+

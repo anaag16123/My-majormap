@@ -45,14 +45,16 @@ export const api = {
         return requestJson(url, { method: "POST" });
     },
 
-    getProposals(career, quantity, credits, preference) {
+    getProposals(career, quantity, credits, esExigente = false) {
         return requestJson(endpoint("/api/propuestas", {
             carrera: career,
             cantidad: quantity,
             creditos: credits,
-            preferencia: preference
+            exigente: String(esExigente)
         }));
     },
+
+    // Samu: explicación del bloqueo y alternativas cuando no hay propuestas.
     getBlocking(career, quantity, credits) {
         return requestJson(endpoint("/api/bloqueo", {
             carrera: career,

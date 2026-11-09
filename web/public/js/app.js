@@ -1,6 +1,6 @@
 import { api, loadTemplate } from "./api.js";
 import { byId, createElement, createEmptyState, showMessage } from "./dom.js";
-import { state, createPlanningState, PREFERENCES } from "./state.js";
+import { state, createPlanningState } from "./state.js";
 import { currentRoute, initializeNavigation } from "./navigation.js";
 import { initializeDetails } from "./details.js";
 import { mountHome } from "./views/home.js";
@@ -58,8 +58,8 @@ function recalculateProposals() {
         ++proposalRequest;
         state.planning.loading = false;
     }
-    const { quantity, credits, preference } = state.planning;
-    generateProposals({ quantity, credits, preference }, { automatic: true });
+    const { quantity, credits, esExigente, mode } = state.planning;
+    generateProposals({ quantity, credits, esExigente, mode }, { automatic: true });
 }
 
 function changeParameters(parameters, valid = true) {
@@ -85,7 +85,8 @@ function applyAlternative({ quantity, credits }) {
         ++proposalRequest;
         state.planning.loading = false;
     }
-    generateProposals({ quantity, credits, preference: state.planning.preference });
+    const { esExigente, mode } = state.planning;
+    generateProposals({ quantity, credits, esExigente, mode });
 }
 
 async function renderRoute(route = currentRoute(), moveFocus = false) {
@@ -223,29 +224,32 @@ async function toggleApproved(course) {
 }
 
 // automatic = true cuando lo dispara el recalcular: no borra avisos ni mueve la página.
-async function generateProposals({ quantity, credits, preference = state.planning.preference }, { automatic = false } = {}) {
+async function generateProposals({
+    quantity,
+    credits,
+    esExigente = state.planning.esExigente,
+    mode = state.planning.mode
+}, { automatic = false } = {}) {
     if (!state.pensum || state.updating || state.planning.loading) return;
-    const maxInteger = 2147483647;
     if (!Number.isInteger(quantity) || !Number.isInteger(credits) ||
-        quantity <= 0 || credits <= 0 || quantity > maxInteger || credits > maxInteger) {
-        if (!automatic) showMessage("Escribe una cantidad y unos créditos enteros positivos válidos.");
+        quantity <= 0 || credits <= 0 || credits > 24) {
+        if (!automatic) showMessage("Escribe una cantidad positiva y un máximo de hasta 24 créditos.");
         return;
     }
-    if (!PREFERENCES.includes(preference)) preference = PREFERENCES[0];
 
     clearTimeout(recalculateTimer);
     const requestId = ++proposalRequest;
     const revision = state.revision;
     const career = state.pensum.carrera;
     Object.assign(state.planning, {
-        quantity, credits, preference, requested: true,
+        quantity, credits, esExigente, mode, requested: true,
         proposals: null, blocking: null, page: 0, loading: true, error: ""
     });
     updateVisiblePlanner();
     if (!automatic) showMessage("");
 
     try {
-        const result = await api.getProposals(career, quantity, credits, preference);
+        const result = await api.getProposals(career, quantity, credits, esExigente);
         if (requestId !== proposalRequest || revision !== state.revision) return;
         let blocking = null;
         if (!result.propuestas.length) {

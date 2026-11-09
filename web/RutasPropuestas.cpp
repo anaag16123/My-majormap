@@ -24,7 +24,8 @@ void error(httplib::Response& res, int estado, const std::string& mensaje) {
 }
 std::string materiaJson(const Materia& materia) {
     return "{\"codigo\":\"" + escapar(materia.getCodigo()) + "\",\"nombre\":\"" +
-        escapar(materia.getNombre()) + "\",\"creditos\":" + std::to_string(materia.getCreditos()) + "}";
+        escapar(materia.getNombre()) + "\",\"creditos\":" + std::to_string(materia.getCreditos()) +
+        ",\"dificultad\":" + std::to_string(materia.getDificultad()) + "}";
 }
 std::string materiasJson(const std::vector<Materia>& materias) {
     std::string resultado = "[";
@@ -69,12 +70,18 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
         } catch (const std::exception&) {
             return error(res, 400, "Cantidad y creditos deben ser enteros positivos validos");
         }
-        // Samu (recalcular): preferencia acordada con Wen. Opcional, por defecto "suave".
-        // Wen usa este valor para ordenar las propuestas.
-        const std::string preferencia = req.has_param("preferencia") ? req.get_param_value("preferencia") : "suave";
-        if (preferencia != "suave" && preferencia != "exigente") {
-            return error(res, 400, "La preferencia debe ser suave o exigente");
+
+        // Lectura del parámetro de preferencia/exigencia
+        // Permite soportar: exigente=true/1, preferencia=exigente/suave o modo=exigente/suave
+        std::string paramExigente = req.get_param_value("exigente");
+        if (paramExigente.empty()) {
+            paramExigente = req.get_param_value("preferencia");
         }
+        if (paramExigente.empty()) {
+            paramExigente = req.get_param_value("modo");
+        }
+        bool esExigente = (paramExigente == "true" || paramExigente == "1" || paramExigente == "exigente");
+
         Grafo grafo;
         { // Copia consistente: la busqueda no bloquea las otras rutas.
             std::lock_guard<std::mutex> lock(ctx.candado);
@@ -83,13 +90,26 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
             grafo = carrera->second.grafo;
         }
         try {
-            const auto propuestas = Planificador::generar(grafo, cantidad, creditos);
+            // 1. Generación de combinaciones válidas (método de Isa)
+            auto propuestas = Planificador::generar(grafo, cantidad, creditos);
+
+            // 2. Ordenamiento según el criterio del estudiante (suave vs exigente)
+            Planificador::ordenarPropuestas(propuestas, esExigente);
+
+            // 3. Serialización del resultado en formato JSON
             std::ostringstream json;
-            json << "{\"cantidad\":" << cantidad << ",\"maxCreditos\":" << creditos
-                 << ",\"preferencia\":\"" << preferencia << "\",\"propuestas\":[";
+            json << "{\"cantidad\":" << cantidad
+                 << ",\"maxCreditos\":" << creditos
+                 << ",\"esExigente\":" << (esExigente ? "true" : "false")
+                 << ",\"propuestas\":[";
             for (std::size_t i = 0; i < propuestas.size(); ++i) {
                 if (i) json << ',';
+                int difTotal = 0;
+                for (const auto& m : propuestas[i].materias) {
+                    difTotal += m.getDificultad();
+                }
                 json << "{\"creditos\":" << propuestas[i].creditos
+                     << ",\"dificultadTotal\":" << difTotal
                      << ",\"materias\":" << materiasJson(propuestas[i].materias) << '}';
             }
             json << "]}";
