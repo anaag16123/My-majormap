@@ -16,5 +16,9 @@ public:
     static std::map<std::string, std::vector<Materia>> todasLasDesbloqueadas(const Grafo& grafo);
     // Exactamente cantidad materias y a lo sumo maxCreditos. Sin duplicados.
     static std::vector<Propuesta> generar(const Grafo& grafo, int cantidad, int maxCreditos);
+    // Ordena las propuestas según la preferencia de exigencia:
+    // - Modo suave (esExigente = false): menor dificultad/carga académica (menor a mayor).
+    // - Modo exigente (esExigente = true): mayor dificultad total (mayor a menor).
+    static void ordenarPropuestas(std::vector<Propuesta>& propuestas, bool esExigente);
 };
 #endif

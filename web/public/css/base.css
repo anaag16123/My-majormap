@@ -1,17 +1,55 @@
-/* Variables de diseño, normalización y elementos compartidos. */
+/* Variables globales de diseño, normalización y componentes compartidos. */
 :root {
-    --color-background: #f6f7fc;
+    /* --- Paleta de Colores Primarios y Secundarios Modernos --- */
+    --color-primary: #6652bd;
+    --color-primary-hover: #533fa6;
+    --color-primary-soft: #f0ebfc;
+    --color-secondary: #4276cc;
+    --color-secondary-hover: #3162b3;
+    --color-secondary-soft: #eaf2ff;
+
+    /* --- Modos de Planificación y Estados --- */
+    --color-suave: #10b981;
+    --color-suave-soft: #ecfdf5;
+    --color-exigente: #e11d48;
+    --color-exigente-soft: #fff1f2;
+    --color-warning: #f59e0b;
+    --color-warning-soft: #fef3c7;
+
+    /* --- Superficies y Bordes --- */
+    --color-background: #f8fafc;
     --color-surface: #ffffff;
-    --color-text: #252b45;
-    --color-muted: #626b82;
-    --color-purple: #6652bd;
-    --color-blue: #4276cc;
-    --color-border: #e3e6f1;
-    --color-purple-soft: #eeeafb;
-    --color-blue-soft: #eaf2ff;
-    --shadow-soft: 0 8px 30px #303b670b;
-    --radius-card: 20px;
+    --color-surface-hover: #f1f5f9;
+    --color-border: #e2e8f0;
+    --color-border-hover: #cbd5e1;
+
+    /* --- Tipografía --- */
+    --color-text: #1e293b;
+    --color-text-secondary: #475569;
+    --color-muted: #64748b;
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* --- Sombras de Elevación --- */
+    --shadow-soft: 0 4px 12px rgba(102, 82, 189, 0.05);
+    --shadow-card: 0 8px 24px -4px rgba(30, 41, 59, 0.07), 0 2px 6px -2px rgba(30, 41, 59, 0.04);
+    --shadow-card-hover: 0 16px 32px -6px rgba(102, 82, 189, 0.12), 0 6px 12px -2px rgba(30, 41, 59, 0.06);
+
+    /* --- Bordes Redondeados --- */
+    --radius-sm: 8px;
     --radius-control: 11px;
+    --radius-card: 18px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+
+    /* --- Transiciones --- */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Alias para máxima compatibilidad con módulos existentes */
+    --color-purple: var(--color-primary);
+    --color-purple-soft: var(--color-primary-soft);
+    --color-blue: var(--color-secondary);
+    --color-blue-soft: var(--color-secondary-soft);
 }
 
 * {
@@ -27,7 +65,7 @@ body {
     margin: 0;
     background: var(--color-background);
     color: var(--color-text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: var(--font-family-sans);
     font-size: 15px;
     line-height: 1.6;
 }

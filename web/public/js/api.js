@@ -45,11 +45,12 @@ export const api = {
         return requestJson(url, { method: "POST" });
     },
 
-    getProposals(career, quantity, credits) {
+    getProposals(career, quantity, credits, esExigente = false) {
         return requestJson(endpoint("/api/propuestas", {
             carrera: career,
             cantidad: quantity,
-            creditos: credits
+            creditos: credits,
+            exigente: String(esExigente)
         }));
     }
 };
