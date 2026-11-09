@@ -5,7 +5,9 @@ export function createPlanningState() {
         credits: 18,
         mode: "suave",
         esExigente: false,
+        requested: false, // Samu: true después de pedir propuestas; activa el recalcular
         proposals: null,
+        blocking: null,   // Samu: diagnóstico de /api/bloqueo cuando no hay propuestas
         page: 0,
         loading: false,
         error: ""

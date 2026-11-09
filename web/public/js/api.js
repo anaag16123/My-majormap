@@ -52,6 +52,15 @@ export const api = {
             creditos: credits,
             exigente: String(esExigente)
         }));
+    },
+
+    // Samu: explicación del bloqueo y alternativas cuando no hay propuestas.
+    getBlocking(career, quantity, credits) {
+        return requestJson(endpoint("/api/bloqueo", {
+            carrera: career,
+            cantidad: quantity,
+            creditos: credits
+        }));
     }
 };
 

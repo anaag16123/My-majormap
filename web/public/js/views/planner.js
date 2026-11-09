@@ -134,10 +134,82 @@ export async function fetchYRenderizarPropuestas({ carrera, cantidad, creditos, 
     }
 }
 
+function plural(count, singular, several) {
+    return `${count} ${count === 1 ? singular : several}`;
+}
+
+// Samu: mensaje de bloqueo con la causa, las alternativas cercanas y las habilitadas.
+function createBlocking(blocking, onApplyAlternative) {
+    const panel = createElement("article", "surface blocking-panel");
+    panel.append(
+        createElement("span", "eyebrow", "SIN COMBINACIONES"),
+        createElement("h3", "", "No hay propuestas con estos límites"),
+        createElement("p", "blocking-reason", blocking.explicacion)
+    );
+
+    const columns = createElement("div", "blocking-columns");
+
+    const options = createElement("section");
+    options.append(createElement("h4", "", "Lo más cercano que sí funciona"));
+    if (blocking.alternativas.length) {
+        const list = createElement("ul", "blocking-list");
+        for (const alternative of blocking.alternativas) {
+            const item = createElement("li");
+            const label = createElement("span", "blocking-option");
+            label.append(
+                createElement("span", "", alternative.descripcion),
+                createElement("span", "badge",
+                    `${plural(alternative.cantidad, "materia", "materias")} · máx. ${alternative.maxCreditos} cr`)
+            );
+            item.append(label);
+            if (onApplyAlternative) {
+                // Samu (HU2): aplicar la alternativa con un clic y recalcular.
+                const apply = createElement("button", "button button-secondary", "Usar esta opción");
+                apply.type = "button";
+                apply.addEventListener("click", () => {
+                    byId("course-count").value = alternative.cantidad;
+                    byId("credit-limit").value = alternative.maxCreditos;
+                    onApplyAlternative({ quantity: alternative.cantidad, credits: alternative.maxCreditos });
+                });
+                item.append(apply);
+            }
+            list.append(item);
+        }
+        options.append(list);
+    } else {
+        options.append(createElement("p", "muted small",
+            `No encontramos una alternativa dentro del tope de ${blocking.topeCreditos} créditos por semestre.`));
+    }
+    const link = createElement("a", "text-link", "Actualizar mis aprobadas →");
+    link.href = "#pensum";
+    options.append(link);
+    columns.append(options);
+
+    const available = createElement("section");
+    available.append(createElement("h4", "", `Materias habilitadas (${blocking.habilitadas.length})`));
+    if (blocking.habilitadas.length) {
+        const list = createElement("ul", "blocking-list");
+        for (const course of blocking.habilitadas) {
+            const item = createElement("li");
+            const label = createElement("span");
+            label.append(createElement("b", "", course.codigo), document.createTextNode(course.nombre));
+            item.append(label, createElement("small", "", `${course.creditos} cr`));
+            list.append(item);
+        }
+        available.append(list);
+    } else {
+        available.append(createElement("p", "muted small", "Ahora mismo no tienes materias habilitadas."));
+    }
+    columns.append(available);
+
+    panel.append(columns);
+    return panel;
+}
+
 /**
  * Actualiza la vista de planificación dentro del ciclo de vida del SPA
  */
-export function updatePlanner(planning, onPageChange) {
+export function updatePlanner(planning, onPageChange, onApplyAlternative = null) {
     const host = byId("proposal-results");
     const listaPropuestas = document.getElementById("lista-propuestas");
     const button = byId("generate-button");
@@ -174,6 +246,15 @@ export function updatePlanner(planning, onPageChange) {
     heading.append(copy, createElement("span", "badge", `${planning.proposals.length} opciones`));
 
     host.replaceChildren(heading);
+
+    if (!planning.proposals.length) {
+        // Samu: explicación del bloqueo. Sin diagnóstico se mantiene el mensaje general.
+        host.append(planning.blocking?.bloqueado ? createBlocking(planning.blocking, onApplyAlternative) : createEmptyState(
+            "Probemos con otra carga",
+            "No hay combinaciones con estos límites. Prueba una cantidad menor, más créditos o revisa tus aprobadas y correquisitos."
+        ));
+        return;
+    }
 
     // Contenedor principal de tarjetas
     const grid = listaPropuestas || createElement("div", "proposal-grid");
@@ -237,13 +318,15 @@ export function mountPlanner(pensum, planning, handlers) {
         };
     }
 
+    // Samu (HU2): el segundo argumento indica si los valores son válidos para recalcular.
+    const form = byId("planner-form");
     [count, credits].forEach(input => input.addEventListener("input", () => {
-        handlers.onParametersChange(readParameters());
+        handlers.onParametersChange(readParameters(), form.checkValidity());
     }));
 
     if (prefSelect) {
         prefSelect.addEventListener("change", () => {
-            handlers.onParametersChange(readParameters());
+            handlers.onParametersChange(readParameters(), form.checkValidity());
         });
     }
 
@@ -262,5 +345,5 @@ export function mountPlanner(pensum, planning, handlers) {
         }
     });
 
-    updatePlanner(planning, handlers.onPageChange);
+    updatePlanner(planning, handlers.onPageChange, handlers.onApplyAlternative);
 }
