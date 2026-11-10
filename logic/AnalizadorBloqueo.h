@@ -36,10 +36,12 @@ public:
     static constexpr int TOPE_CREDITOS = 24;
     // Menor suma de creditos de una combinacion valida de exactamente "cantidad"
     // materias habilitadas (con correquisitos cumplidos). -1 si no existe ninguna.
-    static int minimoCreditos(const Grafo& grafo, int cantidad);
+    static int minimoCreditos(const Grafo& grafo, int cantidad,
+                              const std::vector<std::string>& trayectorias = {});
     // Explica por que no hay combinaciones y propone las alternativas mas cercanas.
     // Si si hay combinaciones, devuelve bloqueado = false.
-    static DiagnosticoBloqueo analizar(const Grafo& grafo, int cantidad, int maxCreditos);
+    static DiagnosticoBloqueo analizar(const Grafo& grafo, int cantidad, int maxCreditos,
+                                       const std::vector<std::string>& trayectorias = {});
 };
 std::string causaATexto(CausaBloqueo causa);
 std::string tipoAlternativaATexto(TipoAlternativa tipo);

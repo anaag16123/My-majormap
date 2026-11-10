@@ -243,7 +243,14 @@ export function updatePlanner(planning, onPageChange, onApplyAlternative = null)
             `Exactamente ${planning.quantity} materias y máx. ${planning.credits} créditos · Orden: Modo ${esExigente ? "Exigente (mayor dificultad primero)" : "Suave (menor dificultad y carga)"}.`
         )
     );
-    heading.append(copy, createElement("span", "badge", `${planning.proposals.length} opciones`));
+    heading.append(copy, createElement("span", "badge", `${planning.proposals.length} opciones${planning.limited ? "+" : ""}`));
+    if (planning.limited) {
+        copy.append(createElement(
+            "p",
+            "muted small",
+            `Mostrando las ${planning.proposals.length} mejores opciones según tu preferencia; hay más combinaciones posibles.`
+        ));
+    }
 
     host.replaceChildren(heading);
 

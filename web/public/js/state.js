@@ -8,6 +8,7 @@ export function createPlanningState() {
         requested: false, // Samu: true después de pedir propuestas; activa el recalcular
         trajectories: [],
         proposals: null,
+        limited: false,  // true si el servidor recortó la lista de propuestas
         blocking: null,   // Samu: diagnóstico de /api/bloqueo cuando no hay propuestas
         page: 0,
         loading: false,

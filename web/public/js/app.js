@@ -300,12 +300,13 @@ async function generateProposals({
             // Samu: sin propuestas se pide la explicación del bloqueo y las alternativas.
             // Si esta consulta falla, la vista muestra el mensaje general.
             try {
-                blocking = await api.getBlocking(career, quantity, credits);
+                blocking = await api.getBlocking(career, quantity, credits, state.planning.trajectories);
             } catch {
                 blocking = null;
             }
             if (requestId !== proposalRequest || revision !== state.revision) return;
         }
+        state.planning.limited = Boolean(result.limitado);
         state.planning.proposals = result.propuestas;
         state.planning.blocking = blocking;
     } catch (error) {

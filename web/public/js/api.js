@@ -60,11 +60,12 @@ export const api = {
     },
 
     // Samu: explicación del bloqueo y alternativas cuando no hay propuestas.
-    getBlocking(career, quantity, credits) {
+    getBlocking(career, quantity, credits, trayectorias = []) {
         return requestJson(endpoint("/api/bloqueo", {
             carrera: career,
             cantidad: quantity,
-            creditos: credits
+            creditos: credits,
+            trayectorias: trayectorias.join(",")
         }));
     }
 };

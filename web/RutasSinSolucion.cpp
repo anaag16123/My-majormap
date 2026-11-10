@@ -64,6 +64,13 @@ void registrarRutasSinSolucion(httplib::Server& servidor, Contexto& ctx) {
         } catch (const std::exception&) {
             return error(res, 400, "Cantidad y creditos deben ser enteros positivos validos");
         }
+        // trayectorias=A,B (opcional), igual que en /api/propuestas.
+        std::vector<std::string> trayectorias;
+        {
+            std::stringstream partes(req.get_param_value("trayectorias"));
+            std::string parte;
+            while (std::getline(partes, parte, ',')) if (!parte.empty()) trayectorias.push_back(parte);
+        }
         Grafo grafo;
         { // Copia consistente, igual que en /api/propuestas.
             std::lock_guard<std::mutex> lock(ctx.candado);
@@ -72,7 +79,7 @@ void registrarRutasSinSolucion(httplib::Server& servidor, Contexto& ctx) {
             grafo = carrera->second.grafo;
         }
         try {
-            res.set_content(diagnosticoJson(AnalizadorBloqueo::analizar(grafo, cantidad, creditos)),
+            res.set_content(diagnosticoJson(AnalizadorBloqueo::analizar(grafo, cantidad, creditos, trayectorias)),
                             "application/json; charset=utf-8");
         } catch (const std::invalid_argument& e) { error(res, 400, e.what()); }
     });

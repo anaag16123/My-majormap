@@ -37,6 +37,21 @@ std::map<std::string, std::vector<Materia>> Planificador::todasLasDesbloqueadas(
     return resultado;
 }
 
+std::vector<Materia> Planificador::habilitadasPermitidas(
+    const Grafo& grafo, const std::vector<std::string>& trayectorias) {
+    const std::string prefijo = "Trayectoria Profesionalizante: ";
+    std::vector<Materia> resultado;
+    for (const Materia& m : grafo.getHabilitadas()) {
+        if (!trayectorias.empty() && m.getTipo().compare(0, prefijo.size(), prefijo) == 0 &&
+            std::find(trayectorias.begin(), trayectorias.end(), m.getTipo().substr(prefijo.size())) ==
+                trayectorias.end()) {
+            continue;
+        }
+        resultado.push_back(m);
+    }
+    return resultado;
+}
+
 std::vector<Propuesta> Planificador::generar(
     const Grafo& grafo,
     int cantidad,
@@ -47,7 +62,7 @@ std::vector<Propuesta> Planificador::generar(
     if (cantidad <= 0 || maxCreditos <= 0) {
         throw std::invalid_argument("Cantidad y creditos deben ser enteros positivos");
     }
-    std::vector<Materia> candidatas = grafo.getHabilitadas();
+    std::vector<Materia> candidatas = habilitadasPermitidas(grafo, trayectoriasProfesionalizantes);
     if (maxResultados > 0) {
         // Con tope, el orden de las candidatas decide cuales propuestas se encuentran primero.
         std::stable_sort(candidatas.begin(), candidatas.end(),
