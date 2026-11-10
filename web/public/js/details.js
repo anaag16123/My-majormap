@@ -43,6 +43,10 @@ export async function initializeDetails(onToggle, onClose) {
             byId("detail-code").textContent = course.codigo;
             byId("detail-title").textContent = course.nombre;
             byId("detail-credits").textContent = `${course.creditos} créditos`;
+            const diffEl = byId("detail-diff");
+            if (diffEl) {
+                diffEl.textContent = course.dificultad ? `Dificultad: ${course.dificultad}/5` : "";
+            }
             byId("detail-status").replaceChildren(createStatus(course.estado));
 
             const lists = [
@@ -53,7 +57,10 @@ export async function initializeDetails(onToggle, onClose) {
             for (const [id, courses] of lists) {
                 const list = byId(id);
                 list.replaceChildren();
-                for (const item of courses) list.append(createElement("li", "", `${item.codigo} · ${item.nombre}`));
+                for (const item of courses) {
+                    const diffSuffix = item.dificultad ? ` · Dif: ${item.dificultad}/5` : "";
+                    list.append(createElement("li", "", `${item.codigo} · ${item.nombre}${diffSuffix}`));
+                }
                 if (!courses.length) {
                     list.append(createElement("li", "", id === "detail-unlocks" ? "No tiene materias dependientes por prerrequisitos." : "Ninguno."));
                 }

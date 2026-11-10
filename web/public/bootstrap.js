@@ -76,7 +76,7 @@
             return;
         }
         try {
-            await import("./js/app.js?v=4");
+            await import("./js/app.js?v=" + Date.now());
         } catch (error) {
             showStartupError("JavaScript no pudo iniciar", [
                 error.message,

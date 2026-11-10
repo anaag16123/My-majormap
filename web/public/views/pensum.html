@@ -2,6 +2,92 @@
     <div><span class="eyebrow">EXPLORA TU CAMINO</span><h1>Mi plan de estudios</h1><p>Abre una materia para consultar su detalle y actualizar tu avance.</p></div>
     <span id="semester-count" class="badge"></span>
 </section>
+
+<!-- Panel de personalización de trayectorias, líneas de énfasis, electivas de matemáticas y NFI -->
+<section class="surface pathway-config-card" id="pathway-panel" aria-labelledby="pathway-heading">
+    <div class="pathway-header">
+        <div class="pathway-header-text">
+            <span class="eyebrow">TU RUTA ACADÉMICA PERSONALIZADA</span>
+            <h2 id="pathway-heading">Configura tus Trayectorias, Énfasis y NFI</h2>
+            <p class="muted small">Elige tus componentes electivos para definir tu propio plan de estudios oficial.</p>
+        </div>
+        <div class="pathway-header-actions">
+            <label class="toggle-custom-plan-label" for="toggle-custom-plan">
+                <input type="checkbox" id="toggle-custom-plan" checked>
+                <span>Ver solo mi pensum configurado</span>
+            </label>
+            <button type="button" id="toggle-pathway-form-btn" class="button button-secondary button-sm" aria-expanded="true">
+                Ocultar opciones ▴
+            </button>
+        </div>
+    </div>
+
+    <form id="pathway-form" class="pathway-form-body">
+        <div class="pathway-grid">
+            <div class="form-group" id="group-prof-1">
+                <label for="select-prof-1"><strong>Trayectoria Profesionalizante 1</strong></label>
+                <select id="select-prof-1" class="form-control" required></select>
+            </div>
+            <div class="form-group" id="group-prof-2">
+                <label for="select-prof-2"><strong>Trayectoria Profesionalizante 2</strong></label>
+                <select id="select-prof-2" class="form-control" required></select>
+            </div>
+            <div class="form-group" id="group-flex">
+                <label for="select-flex"><strong>Trayectoria Flexible (1)</strong></label>
+                <select id="select-flex" class="form-control" required></select>
+            </div>
+            <div class="form-group" id="group-enfasis">
+                <label for="select-enfasis"><strong>Línea de Énfasis (1)</strong></label>
+                <select id="select-enfasis" class="form-control" required></select>
+            </div>
+        </div>
+
+        <!-- Sección de Electivas en Matemáticas (Específica para Ing. de Sistemas: 2 por estudiante) -->
+        <div class="math-electives-section" id="group-math-electives" style="display: none;">
+            <div class="nfi-header-row">
+                <div>
+                    <label><strong>Electivas en Matemáticas (Selecciona exactamente 2)</strong></label>
+                    <p class="field-help">En Ingeniería de Sistemas solo se cursan 2 electivas en matemáticas por estudiante.</p>
+                </div>
+            </div>
+            <div class="pathway-grid">
+                <div class="form-group">
+                    <label for="select-mat-1">Electiva en Matemáticas 1</label>
+                    <select id="select-mat-1" class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label for="select-mat-2">Electiva en Matemáticas 2</label>
+                    <select id="select-mat-2" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="nfi-section">
+            <div class="nfi-header-row">
+                <div>
+                    <label><strong>Materias NFI (Núcleo de Formación Institucional)</strong></label>
+                    <p class="field-help">
+                        Selecciona exactamente 5 materias NFI. 
+                        <em>Pensamiento Computacional</em> (1° sem.) y <em>Ciudadanía y Democracia</em> (2° sem.) son obligatorios. 
+                        Los demás NFIs pueden cursarse en cualquier semestre (hasta 5° semestre, máx. 2 por semestre).
+                    </p>
+                </div>
+                <span class="badge nfi-counter-badge" id="nfi-counter">0 / 5 seleccionadas</span>
+            </div>
+            <input type="search" id="nfi-search" placeholder="Filtrar materias NFI por nombre o código…" class="form-control search-nfi-input">
+            <div class="nfi-chips-grid" id="nfi-chips-container" role="group" aria-label="Materias NFI disponibles"></div>
+        </div>
+
+        <div class="pathway-footer-row">
+            <span id="pathway-feedback" class="muted small" role="status"></span>
+            <div class="button-row">
+                <button type="button" id="btn-suggested-pathway" class="button button-secondary">Cargar sugerencia</button>
+                <button type="submit" id="btn-save-pathway" class="button button-primary">Aplicar a mi Pensum ↗</button>
+            </div>
+        </div>
+    </form>
+</section>
+
 <p id="catalog-note" class="notice"></p>
 <section class="surface filter-panel" aria-label="Buscar y filtrar materias">
     <label class="search-field" for="course-search"><span aria-hidden="true">⌕</span><input id="course-search" type="search" placeholder="Buscar por nombre o código…"></label>

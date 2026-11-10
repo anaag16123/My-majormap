@@ -31,6 +31,10 @@ export const api = {
         return requestJson(endpoint("/api/pensum", { carrera: career }));
     },
 
+    getTrajectories(career) {
+        return requestJson(endpoint("/api/trayectorias", { carrera: career }));
+    },
+
     getCourse(career, code) {
         return requestJson(endpoint("/api/materia", { carrera: career, codigo: code }));
     },
@@ -45,28 +49,30 @@ export const api = {
         return requestJson(url, { method: "POST" });
     },
 
-    getProposals(career, quantity, credits, esExigente = false) {
+    getProposals(career, quantity, credits, esExigente = false, trayectorias = []) {
         return requestJson(endpoint("/api/propuestas", {
             carrera: career,
             cantidad: quantity,
             creditos: credits,
-            exigente: String(esExigente)
+            exigente: String(esExigente),
+            trayectorias: trayectorias.join(",")
         }));
     },
 
     // Samu: explicación del bloqueo y alternativas cuando no hay propuestas.
-    getBlocking(career, quantity, credits) {
+    getBlocking(career, quantity, credits, trayectorias = []) {
         return requestJson(endpoint("/api/bloqueo", {
             carrera: career,
             cantidad: quantity,
-            creditos: credits
+            creditos: credits,
+            trayectorias: trayectorias.join(",")
         }));
     }
 };
 
 export async function loadTemplate(path) {
     if (!templateCache.has(path)) {
-        const promise = fetch(path).then(response => {
+        const promise = fetch(`${path}?v=${Date.now()}`, { cache: "no-store" }).then(response => {
             if (!response.ok) {
                 throw new Error(`No se pudo cargar ${path}. Verifica que copiaste la carpeta web/public completa.`);
             }

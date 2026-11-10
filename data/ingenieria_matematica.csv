@@ -1,0 +1,257 @@
+codigo;nombre;semestre;creditos;dificultad;prerrequisitos;correquisitos;tipo
+BU0009;Inducción;1;0;1;;;Basico
+BU0011;Bienestar Universitario;1;1;1;;BU0600;Basico
+BU0600;Taller de Salud;1;0;1;;;Basico
+CM0075;Modelación y Simulación I;1;3;4;;;Basico
+CM0230;Cálculo I;1;3;4;;;Basico
+CM0260;Lógica;1;3;3;;;Basico
+CM0446;Geometría en Contexto;1;4;4;;;Basico
+ST0242;Fundamentos de Programación;1;4;4;;;Basico
+CM0078;Modelación y Simulación II;2;3;4;;CM0075,CM0231;Basico
+CM0231;Cálculo II;2;3;4;CM0230;;Basico
+CM0234;Álgebra Lineal;2;3;4;;;Basico
+DF0236;Física I;2;4;5;CM0230;;Basico
+ST0245;Estructura Datos y Algoritmos 1;2;3;4;ST0242;;Basico
+CM0079;Modelación y Simulación III;3;3;4;BU0009,CM0078;;Basico
+CM0232;Cálculo III;3;3;4;CM0231;CM0234;Basico
+CM0246;Estructuras Discretas;3;3;4;CM0260;CM0446;Basico
+CM0415;Teoría de Probabilidades (I. Matemática);3;3;4;;CM0232,CM0446;Basico
+DF0239;Física II;3;4;5;DF0236;CM0231;Basico
+CM0080;Modelación y Simulación IV;4;3;4;CM0234,CM0415;;Basico
+CM0081;Lenguajes Formales y Autómatas;4;3;4;CM0246;;Basico
+CM0235;Ecuaciones Diferenciales;4;3;4;;CM0232;Basico
+CM0418;Estadística 1 (Ing. Matemática);4;3;4;CM0415;;Basico
+CM0426;Optimización 1;4;3;4;CM0234;CM0231;Basico
+CM0050;Optimización 2;5;3;4;CM0232,CM0426;;Basico
+CM0085;Modelación y Simulación V;5;3;4;CM0418;;Basico
+CM0422;Ecuaciones en Derivadas Parciales;5;3;5;CM0235;;Basico
+CM0423;Estadística 2 (Ing. Matemática);5;3;4;CM0418,CM0234;;Basico
+ST0256;Análisis Numérico I;5;3;4;CM0234;CM0235;Basico
+CM0087;Análisis I;6;3;5;CM0232;;Basico
+CM0433;Procesos Estocásticos 1;6;3;5;CM0418;;Basico
+CM0436;Práctica Investigativa 1;6;3;4;CM0080;;Basico
+CM0439;Heurística;6;3;4;CM0050,ST0245;;Basico
+CM0440;Sistemas Lineales;6;3;4;CM0235;ST0256;Basico
+CM0088;Análisis II;7;3;5;CM0087;;Basico
+CM0089;Modelación Experimental;7;3;4;CM0440;;Basico
+CM0438;Procesos Estocásticos II;7;3;5;CM0422,CM0433;;Basico
+CM0441;Práctica Investigativa II;7;3;4;CM0436;;Basico
+PT4101;Pre-Práctica Ingeniería Matemática;7;0;2;;;Basico
+PT0303;Período de Práctica (Ingeniería Matemática Reforma);8;18;5;PT4101;;Basico
+CM0055;Práctica Investigativa III;9;3;5;CM0441,PT0303;;Basico
+CM0091;Inteligencia Artificial;9;3;5;CM0089,CM0439,PT0303;CM0092;Basico
+CM0092;Análisis Numérico II;9;3;5;CM0087,CM0422,ST0256,PT0303;;Basico
+FH1001;Ciudadanía y Democracia;2;3;2;;;NFI
+FH1006;La pregunta por la vida buena;2;3;2;;;NFI
+FH1007;Toma de decisiones;2;3;2;;;NFI
+FH1003;Arte y Ciudadanía;3;3;2;;;NFI
+FH1004;Arte, Historia y Memoria;3;3;2;;;NFI
+FH1005;Arte, Política y Participación;3;3;2;;;NFI
+FH1008;Historia y Filosofía del Conocimiento Científico;3;3;2;;;NFI
+FH1009;Políticas del Conocimiento Científico;3;3;2;;;NFI
+FH1010;Ciencia y técnica en acción;3;3;2;;;NFI
+FH1011;Retórica y democracia;4;3;2;;;NFI
+FH1012;Argumentación visual y multimodal;4;3;2;;;NFI
+FH1013;Crítica de la opinión pública;4;3;2;;;NFI
+FH1014;Taller de escrituras líricas;4;3;2;;;NFI
+FH1015;Taller de Narrativas Urbanas;4;3;2;;;NFI
+FH1016;Taller de Dramaturgia Experimental;4;3;2;;;NFI
+FH1017;Lenguaje, ficción y realidad;4;3;2;;;NFI
+FH1018;Grandes textos de las Humanidades;4;3;2;;;NFI
+FH1019;Debates Humanísticos Contemporáneos;4;3;2;;;NFI
+FH1020;Identidades y literatura;4;3;2;;;NFI
+FH1021;Territorios y literatura;4;3;2;;;NFI
+FH1022;Emociones y Literatura;4;3;2;;;NFI
+FH1023;Estilos de vida sostenible;5;3;2;;;NFI
+FH1024;Diseño de soluciones imitando la naturaleza;5;3;2;;;NFI
+FH1025;Acción por el clima;5;3;2;;;NFI
+FH1026;Modelos de Democracia;5;3;2;;;NFI
+FH1027;Colombia: Territorio y Desarrollo;5;3;2;;;NFI
+FH1028;Coyunturas del Orden Global;5;3;2;;;NFI
+FH1029;Mundos de las Músicas Urbanas;5;3;2;;;NFI
+FH1030;Música y Política;5;3;2;;;NFI
+FH1031;Música, Lenguaje y Memoria;5;3;2;;;NFI
+FH1032;Imaginación y Creatividad;5;3;2;;;NFI
+FH1033;Comunicación Crítica;5;3;2;;;NFI
+FH1034;Economía, Política y Coyuntura Económica;5;3;2;;;NFI
+FH1035;Retos de la Ciudadanía Digital;5;3;2;;;NFI
+FH1036;Colombia: Estrategias de Guerra y Paz;5;3;2;;;NFI
+BI0045;Procesos Fisicoquímicos;9;4;4;;;Trayectoria Flexible: Complementarias
+BI0230;Fenómenos Químicos y Laboratorio;9;4;4;;;Trayectoria Flexible: Complementarias
+BI0232;Química Orgánica y Laboratorio;9;4;4;BI0230;;Trayectoria Flexible: Complementarias
+BI0242;Biología;9;4;4;;;Trayectoria Flexible: Complementarias
+BI0455;Introducción a la Biología;9;2;3;BI0242;;Trayectoria Flexible: Complementarias
+BI0471;Biología Molecular;9;3;4;BI0242;;Trayectoria Flexible: Complementarias
+BI0477;Ecología y Laboratorio;9;4;4;BI0242;;Trayectoria Flexible: Complementarias
+BI0481;Evolución;9;3;4;BI0242;BI0471;Trayectoria Flexible: Complementarias
+BI0487;Fundamentos de Biología Computacional;9;3;4;BI0242,CM0080;BI0471;Trayectoria Flexible: Complementarias
+BI0488;Biología de la Conservación;9;3;4;BI0477;;Trayectoria Flexible: Complementarias
+BI0494;Análisis de Secuencias;9;3;4;BI0242,BI0487;;Trayectoria Flexible: Complementarias
+BI0495;Modelación Molecular;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0252;Topología General;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0326;Electiva Im 1;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0327;Electiva Im 2;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0328;Electiva Im 3;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0442;Variable Compleja;9;3;4;CM0232;;Trayectoria Flexible: Complementarias
+CM0600;Análisis Multivariado;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0608;Ecuaciones Diferenciales Ordinarias;9;4;4;;;Trayectoria Flexible: Complementarias
+CM0609;Optimización;9;5;5;;;Trayectoria Flexible: Complementarias
+CM0610;Lenguajes Funcionales;9;5;5;;;Trayectoria Flexible: Complementarias
+CM0611;Optimización 2;9;5;5;;;Trayectoria Flexible: Complementarias
+CM0707;Ecuaciones Diferenciales Parciales;9;5;5;CM0235;;Trayectoria Flexible: Complementarias
+CM0800;Ecuaciones en Derivadas Parciales;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0829;Topología Diferencial;9;5;5;;;Trayectoria Flexible: Complementarias
+CM0841;Optimización No Lineal;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0843;Análisis Matemático;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0845;Lógica;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0847;Algoritmos;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0850;Modelos y Métodos de Optimización;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0853;Modelos Lineales Generalizados;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0856;Optimización Estocástica;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0857;Optimización Multiobjetivo;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0858;Métodos Formales para el Desarrollo de Software;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0859;Teoría de Tipos;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0860;Sistemas de Información Geográfica;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0870;Procesamiento de Imágenes Remotas;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0871;Aprendizaje Automático para el Procesamiento de Imágenes;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0872;Inteligencia Computacional;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0873;Procesos Estocásticos;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0874;Álgebra Lineal;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0876;Métodos Numéricos;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0885;Inferencia Estadística;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0886;Técnicas de Optimización en Ciencia Regional;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0887;Geometría Diferencial;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0901;Topología;9;5;5;;;Trayectoria Flexible: Complementarias
+CM0904;Ecuaciones Diferenciales Ordinarias;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0910;Lenguajes Declarativos;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0915;Econometría Bayesiana;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0923;Datos Funcionales;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0924;Estadística Multivariada Avanzada;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0931;Cálculo Avanzado;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0936;Álgebra en Ciencias de los Datos;9;3;4;;;Trayectoria Flexible: Complementarias
+CM0939;Aprendizaje Automático;9;2;3;;;Trayectoria Flexible: Complementarias
+CM0940;Estadística No Paramétrica en Ciencias de los Datos;9;3;4;;;Trayectoria Flexible: Complementarias
+CO0125;Estados Financieros;9;3;4;;;Trayectoria Flexible: Complementarias
+CO0133;Fundamentos de Contabilidad;9;3;4;;;Trayectoria Flexible: Complementarias
+CO0135;Costos para Toma de Decisiones;9;3;4;;;Trayectoria Flexible: Complementarias
+CO0217;Costos y Presupuestos;9;3;4;;;Trayectoria Flexible: Complementarias
+CT0230;Geociencias;9;4;4;;;Trayectoria Flexible: Complementarias
+CT0231;Introducción a la Geoquímica;9;4;4;;;Trayectoria Flexible: Complementarias
+CT0241;Teledetección;9;4;4;;CT0230;Trayectoria Flexible: Complementarias
+CT0244;Geomorfología;9;4;4;;CT0241;Trayectoria Flexible: Complementarias
+CT0246;Paleontología;9;4;4;;CT0230;Trayectoria Flexible: Complementarias
+CT0248;Geotecnia;9;3;4;;CT0244;Trayectoria Flexible: Complementarias
+CT0249;Ciencias del Mar;9;3;4;;CT0244;Trayectoria Flexible: Complementarias
+CT0250;Geofísica;9;3;4;;DF0239;Trayectoria Flexible: Complementarias
+CT0272;Geología Física (Civil);9;3;4;;;Trayectoria Flexible: Complementarias
+DF0025;Física Matemática 1 (Ingeniería Física);9;3;4;CM0232;;Trayectoria Flexible: Complementarias
+DF0037;Física Matemática 2 (Ingeniería Física);9;3;4;DF0025;;Trayectoria Flexible: Complementarias
+DF0038;Electromagnetismo;9;4;4;CM0422,DF0239;;Trayectoria Flexible: Complementarias
+DF0039;Óptica;9;4;4;DF0239;;Trayectoria Flexible: Complementarias
+DF0121;Fenómenos de Transporte;9;3;4;BI0045;;Trayectoria Flexible: Complementarias
+DF0123;Física Moderna;9;4;4;CM0422;;Trayectoria Flexible: Complementarias
+DF0125;Mecánica Cuántica;9;3;4;DF0123;;Trayectoria Flexible: Complementarias
+DF0447;Introducción a la Física;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0064;Econometría Avanzada;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0083;Series de Tiempos;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0101;Introducción a la Economía;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0102;Microeconomía General;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0112;Microeconomía General;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0113;Macroeconomía General;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0214;Macroeconomía General;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0216;Técnicas de Medición Económica;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0244;Macroeconomía Intermedia 1;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0250;Econometría 1;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0251;Econometría 2;9;3;4;EC0250;;Trayectoria Flexible: Complementarias
+EC0260;Introducción a la Economía Colombiana;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0263;Seminario de Economía;9;2;3;;;Trayectoria Flexible: Complementarias
+EC0285;Teoría de Juegos;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0301;Series de Tiempo;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0311;Economía Matemática;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0873;Series de Tiempo;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0875;Tópicos en Econometría;9;3;4;;;Trayectoria Flexible: Complementarias
+EC0879;Tópicos en Modelación;9;3;4;;;Trayectoria Flexible: Complementarias
+EC1001;Econometría Avanzada (Investigación);9;3;4;;;Trayectoria Flexible: Complementarias
+EC1021;Econometría Avanzada I;9;3;4;;;Trayectoria Flexible: Complementarias
+EC1209;Métodos Estadísticos Avanzados en Ciencias de los Datos;9;2;3;;;Trayectoria Flexible: Complementarias
+EI7000;Computación Cuántica I;9;3;4;CM0234;;Trayectoria Flexible: Complementarias
+FI0035;Simulación Financiera;9;3;4;;;Trayectoria Flexible: Complementarias
+FI0116;Matemáticas Financieras;9;3;4;;;Trayectoria Flexible: Complementarias
+FI0131;Análisis Financiero;9;3;4;;;Trayectoria Flexible: Complementarias
+FI0155;Instrumentos Financieros Derivados;9;3;4;FI0156,FI0157;;Trayectoria Flexible: Complementarias
+FI0156;Instrumentos Financieros de Renta Fija;9;3;4;FI0116;;Trayectoria Flexible: Complementarias
+FI0157;Instrumentos Financieros de Renta Variable;9;3;4;FI0116;;Trayectoria Flexible: Complementarias
+FI0159;Finanzas Corporativas;9;3;4;;;Trayectoria Flexible: Complementarias
+FI0919;Instrumentos Financieros de Renta Fija 2;9;2;3;;;Trayectoria Flexible: Complementarias
+FI0924;Instrumentos Financieros de Renta Variable 4;9;4;4;;;Trayectoria Flexible: Complementarias
+GP0024;Análisis y Diseño de Políticas Públicas;9;2;3;;;Trayectoria Flexible: Complementarias
+GU0001;Ética y Tecnología en la Era de la Inteligencia Artificial;9;3;4;;;Trayectoria Flexible: Complementarias
+IC0103;Construcción Liviana;9;3;4;;;Trayectoria Flexible: Complementarias
+IC0263;Mecánica del Medio Continuo;9;3;4;;;Trayectoria Flexible: Complementarias
+IC0266;Mecánica de Fluidos;9;4;4;;;Trayectoria Flexible: Complementarias
+IC0717;Introducción al Método de Elementos Finitos;9;3;4;ST0256;;Trayectoria Flexible: Complementarias
+IC0911;Introducción al Método de Frontera;9;3;4;;;Trayectoria Flexible: Complementarias
+IC0920;Matemáticas Avanzadas para Ingenieros;9;3;4;;;Trayectoria Flexible: Complementarias
+ID0230;Diseño Conceptual;9;2;3;;;Trayectoria Flexible: Complementarias
+IM0230;Dibujo Técnico;9;3;4;;;Trayectoria Flexible: Complementarias
+IM0232;Estática;9;3;4;;;Trayectoria Flexible: Complementarias
+IM0233;Mecánica de Sólidos;9;3;4;;;Trayectoria Flexible: Complementarias
+IM0234;Dinámica;9;3;4;DF0239;;Trayectoria Flexible: Complementarias
+IM0237;Termodinámica;9;3;4;;;Trayectoria Flexible: Complementarias
+IM0242;Introducción a Sistemas Cad/Cam;9;3;4;CM0426,ST0245;;Trayectoria Flexible: Complementarias
+IM0661;Métodos Numéricos Avanzados;9;3;4;ST0256;;Trayectoria Flexible: Complementarias
+IM0664;Modelación Geométrica;9;3;4;ST0245;;Trayectoria Flexible: Complementarias
+IM0839;Dinámica de Fluidos Computacional Aplicada;9;3;4;ST0256;;Trayectoria Flexible: Complementarias
+IM0849;Optimización Estructural;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0232;Gestión de la Producción;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0235;Sistemas de Producción 1;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0237;Sistemas de Producción 2;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0241;Electrotecnia;9;4;4;;;Trayectoria Flexible: Complementarias
+IP0242;Procesos de Manufactura 1;9;4;4;;;Trayectoria Flexible: Complementarias
+IP0243;Logística Industrial;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0245;Control de Calidad;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0246;Modelos de Decisión;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0247;Procesos de Manufactura 2;9;5;5;;;Trayectoria Flexible: Complementarias
+IP0250;Control Automático de Procesos;9;4;4;CM0440;;Trayectoria Flexible: Complementarias
+IP0251;Gestión de Tecnología e Innovación;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0252;Automatización con Microcontroladores;9;1;2;;;Trayectoria Flexible: Complementarias
+IP0253;Automatización con Matlab;9;1;2;;;Trayectoria Flexible: Complementarias
+IP0254;Automatización con Plc;9;1;2;;;Trayectoria Flexible: Complementarias
+IP0255;Automatización con Labview;9;1;2;;;Trayectoria Flexible: Complementarias
+IP0256;Elementos de Máquinas y Equipo;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0257;Proyecto de Elementos de Máquinas y Equipos;9;2;3;;;Trayectoria Flexible: Complementarias
+IP0258;Control de Producción;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0780;Gestión de Inventarios y Almacenamiento;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0788;Estrategia de Operaciones y Logística Inversa;9;3;4;;;Trayectoria Flexible: Complementarias
+IP0865;Estrategia de Operaciones y Logística;9;2;3;;;Trayectoria Flexible: Complementarias
+IP0867;Planeación de Ventas y Operaciones;9;2;3;;;Trayectoria Flexible: Complementarias
+IP0868;Gestión de Inventarios;9;2;3;;;Trayectoria Flexible: Complementarias
+IP0869;Gestión de Almacenes;9;2;3;;;Trayectoria Flexible: Complementarias
+IP0870;Compras, Proveedores y Negociación;9;2;3;;;Trayectoria Flexible: Complementarias
+IP0872;Gerencia de Proyectos;9;2;3;;;Trayectoria Flexible: Complementarias
+ME0070;Gerencia de Marca;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0054;Gestión de Tecnología con Enfoque a los Procesos;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0064;Construcción Empresarial;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0131;Procesos de Gestión Humana;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0133;Administración Internacional;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0261;Evaluación Financiera de Proyectos;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0263;Análisis de Riesgos;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0270;Sistemas de Gestión de la Calidad;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0271;Control de Procesos;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0272;Asignación de Recursos a los Procesos;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0273;Sistemas de Información para el Mejoramiento de Procesos;9;3;4;;;Trayectoria Flexible: Complementarias
+OG0356;Aprendizaje Experiencial a Través de Retos;9;3;4;;;Trayectoria Flexible: Complementarias
+ST0237;Proyecto Especial de 3 Créditos;9;3;4;;;Trayectoria Flexible: Complementarias
+ST0244;Lenguajes de Programación;9;3;4;ST0242;;Trayectoria Flexible: Complementarias
+ST0246;Base de Datos;9;3;4;ST0245;;Trayectoria Flexible: Complementarias
+ST0247;Estructura Datos y Algoritmos 2;9;3;4;ST0245;;Trayectoria Flexible: Complementarias
+ST0250;Ingeniería de Software;9;4;4;ST0246;;Trayectoria Flexible: Complementarias
+ST0252;Sistemas de Información;9;3;4;;;Trayectoria Flexible: Complementarias
+ST0255;Telemática;9;3;4;;;Trayectoria Flexible: Complementarias
+ST0257;Sistemas Operativos;9;4;4;;;Trayectoria Flexible: Complementarias
+ST0264;Paradigmas de Programación;9;3;4;CM0081;;Trayectoria Flexible: Complementarias
+ST0270;Lenguajes Formales y Compiladores;9;4;4;;;Trayectoria Flexible: Complementarias
+ST0274;Realidad Virtual Distribuida;9;3;4;ST0250;;Trayectoria Flexible: Complementarias
+ST0275;Computación Gráfica;9;3;4;;;Trayectoria Flexible: Complementarias
+ST0436;Aprendizaje de Máquina Cuántico;9;3;4;EI7000;;Trayectoria Flexible: Complementarias
+ST1800;Almacenamiento y Recuperación de la Información;9;2;3;;;Trayectoria Flexible: Complementarias

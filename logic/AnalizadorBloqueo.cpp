@@ -1,10 +1,12 @@
 #include "AnalizadorBloqueo.h"
+#include "Planificador.h"
 #include <algorithm>
 #include <functional>
 #include <stdexcept>
-int AnalizadorBloqueo::minimoCreditos(const Grafo& grafo, int cantidad) {
+int AnalizadorBloqueo::minimoCreditos(const Grafo& grafo, int cantidad,
+                                      const std::vector<std::string>& trayectorias) {
     if (cantidad <= 0) throw std::invalid_argument("La cantidad debe ser un entero positivo");
-    std::vector<Materia> candidatas = grafo.getHabilitadas();
+    std::vector<Materia> candidatas = Planificador::habilitadasPermitidas(grafo, trayectorias);
     const std::size_t n = candidatas.size();
     if (static_cast<std::size_t>(cantidad) > n) return -1;
     // Ordenar de menor a mayor credito permite acotar: las siguientes "faltan"
@@ -43,9 +45,9 @@ std::string plural(int numero, const std::string& singular, const std::string& v
     return std::to_string(numero) + " " + (numero == 1 ? singular : varios);
 }
 // Materias habilitadas que solo pueden cursarse junto con un correquisito no aprobado.
-std::string describirCorrequisitos(const Grafo& grafo) {
+std::string describirCorrequisitos(const Grafo& grafo, const std::vector<Materia>& habilitadas) {
     std::string texto;
-    for (const Materia& m : grafo.getHabilitadas()) {
+    for (const Materia& m : habilitadas) {
         std::vector<std::string> pendientes;
         for (const std::string& co : m.getCorrequisitos()) {
             if (!grafo.estaAprobada(co)) pendientes.push_back(co);
@@ -61,14 +63,15 @@ std::string describirCorrequisitos(const Grafo& grafo) {
     return texto.empty() ? texto : texto + ".";
 }
 }
-DiagnosticoBloqueo AnalizadorBloqueo::analizar(const Grafo& grafo, int cantidad, int maxCreditos) {
+DiagnosticoBloqueo AnalizadorBloqueo::analizar(const Grafo& grafo, int cantidad, int maxCreditos,
+                                               const std::vector<std::string>& trayectorias) {
     if (cantidad <= 0 || maxCreditos <= 0) {
         throw std::invalid_argument("Cantidad y creditos deben ser enteros positivos");
     }
     DiagnosticoBloqueo diagnostico;
-    diagnostico.habilitadas = grafo.getHabilitadas();
+    diagnostico.habilitadas = Planificador::habilitadasPermitidas(grafo, trayectorias);
     const int disponibles = static_cast<int>(diagnostico.habilitadas.size());
-    const int minimo = minimoCreditos(grafo, cantidad);
+    const int minimo = minimoCreditos(grafo, cantidad, trayectorias);
     if (minimo != -1 && minimo <= maxCreditos) return diagnostico;  // Hay solucion.
     diagnostico.bloqueado = true;
     // 1. Causa del bloqueo, de la mas basica a la mas especifica.
@@ -86,7 +89,7 @@ DiagnosticoBloqueo AnalizadorBloqueo::analizar(const Grafo& grafo, int cantidad,
         diagnostico.causa = CausaBloqueo::CORREQUISITOS;
         diagnostico.explicacion = "No se puede armar una propuesta de exactamente " +
             plural(cantidad, "materia", "materias") + " porque algunos correquisitos obligan a tomar "
-            "materias juntas." + describirCorrequisitos(grafo);
+            "materias juntas." + describirCorrequisitos(grafo, diagnostico.habilitadas);
     } else {
         diagnostico.causa = CausaBloqueo::CREDITOS_INSUFICIENTES;
         diagnostico.explicacion = "La combinación más liviana de " + plural(cantidad, "materia", "materias") +
@@ -99,7 +102,7 @@ DiagnosticoBloqueo AnalizadorBloqueo::analizar(const Grafo& grafo, int cantidad,
     }
     // 2. Alternativa: la mayor cantidad de materias que cabe en el mismo maximo de creditos.
     for (int k = std::min(cantidad - 1, disponibles); k >= 1; --k) {
-        int creditos = minimoCreditos(grafo, k);
+        int creditos = minimoCreditos(grafo, k, trayectorias);
         if (creditos != -1 && creditos <= maxCreditos) {
             diagnostico.alternativas.push_back({TipoAlternativa::MENOS_MATERIAS, k, maxCreditos,
                 "Tomar " + plural(k, "materia", "materias") + " con máximo " +
@@ -118,7 +121,7 @@ DiagnosticoBloqueo AnalizadorBloqueo::analizar(const Grafo& grafo, int cantidad,
     if (diagnostico.alternativas.empty() && diagnostico.causa == CausaBloqueo::CORREQUISITOS) {
         const int limite = std::max(maxCreditos, TOPE_CREDITOS);
         for (int k = cantidad + 1; k <= disponibles; ++k) {
-            int creditos = minimoCreditos(grafo, k);
+            int creditos = minimoCreditos(grafo, k, trayectorias);
             if (creditos == -1 || creditos > limite) continue;
             int maximo = std::max(maxCreditos, creditos);
             diagnostico.alternativas.push_back({TipoAlternativa::MAS_MATERIAS, k, maximo,

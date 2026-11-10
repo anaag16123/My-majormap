@@ -42,11 +42,38 @@ std::string pensumJson(const Carrera& c) {
           << ",\"semestre\":" << m.getSemestre()
           << ",\"creditos\":" << m.getCreditos()
           << ",\"dificultad\":" << m.getDificultad()
+          << ",\"tipo\":\"" << esc(m.getTipo()) << "\""
           << ",\"prerrequisitos\":" << listaJson(m.getPrerrequisitos())
           << ",\"correquisitos\":" << listaJson(m.getCorrequisitos())
           << ",\"estado\":\"" << estadoATexto(g.getEstado(m.getCodigo())) << "\"}";
     }
+    o << "],\"trayectorias\":[";
+    bool primerReg = true;
+    for (const auto& t : c.trayectorias) {
+        if (!primerReg) o << ",";
+        primerReg = false;
+        o << "{\"codigo\":\"" << esc(t.codigo) << "\""
+          << ",\"nombre\":\"" << esc(t.nombre) << "\""
+          << ",\"grupo\":\"" << esc(t.grupo) << "\""
+          << ",\"tipo_grupo\":\"" << esc(t.tipoGrupo) << "\"}";
+    }
     o << "]}";
+    return o.str();
+}
+
+std::string trayectoriasJson(const Carrera& c) {
+    std::ostringstream o;
+    o << "[";
+    bool primerReg = true;
+    for (const auto& t : c.trayectorias) {
+        if (!primerReg) o << ",";
+        primerReg = false;
+        o << "{\"codigo\":\"" << esc(t.codigo) << "\""
+          << ",\"nombre\":\"" << esc(t.nombre) << "\""
+          << ",\"grupo\":\"" << esc(t.grupo) << "\""
+          << ",\"tipo_grupo\":\"" << esc(t.tipoGrupo) << "\"}";
+    }
+    o << "]";
     return o.str();
 }
 
@@ -75,6 +102,13 @@ void registrarRutasPensum(httplib::Server& servidor, Contexto& ctx) {
         auto it = ctx.carreras.find(req.get_param_value("carrera"));
         if (it == ctx.carreras.end()) return responderError(res, 404, "Carrera no existe");
         res.set_content(pensumJson(it->second), "application/json; charset=utf-8");
+    });
+
+    servidor.Get("/api/trayectorias", [&ctx](const httplib::Request& req, httplib::Response& res) {
+        std::lock_guard<std::mutex> lock(ctx.candado);
+        auto it = ctx.carreras.find(req.get_param_value("carrera"));
+        if (it == ctx.carreras.end()) return responderError(res, 404, "Carrera no existe");
+        res.set_content(trayectoriasJson(it->second), "application/json; charset=utf-8");
     });
 
     servidor.Post("/api/aprobada", [&ctx](const httplib::Request& req, httplib::Response& res) {

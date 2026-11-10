@@ -37,17 +37,47 @@ std::map<std::string, std::vector<Materia>> Planificador::todasLasDesbloqueadas(
     return resultado;
 }
 
-std::vector<Propuesta> Planificador::generar(const Grafo& grafo, int cantidad, int maxCreditos) {
+std::vector<Materia> Planificador::habilitadasPermitidas(
+    const Grafo& grafo, const std::vector<std::string>& trayectorias) {
+    const std::string prefijo = "Trayectoria Profesionalizante: ";
+    std::vector<Materia> resultado;
+    for (const Materia& m : grafo.getHabilitadas()) {
+        if (!trayectorias.empty() && m.getTipo().compare(0, prefijo.size(), prefijo) == 0 &&
+            std::find(trayectorias.begin(), trayectorias.end(), m.getTipo().substr(prefijo.size())) ==
+                trayectorias.end()) {
+            continue;
+        }
+        resultado.push_back(m);
+    }
+    return resultado;
+}
+
+std::vector<Propuesta> Planificador::generar(
+    const Grafo& grafo,
+    int cantidad,
+    int maxCreditos,
+    const std::vector<std::string>& trayectoriasProfesionalizantes,
+    std::size_t maxResultados,
+    bool exigente) {
     if (cantidad <= 0 || maxCreditos <= 0) {
         throw std::invalid_argument("Cantidad y creditos deben ser enteros positivos");
     }
-    const auto& candidatas = grafo.getHabilitadas();
+    std::vector<Materia> candidatas = habilitadasPermitidas(grafo, trayectoriasProfesionalizantes);
+    if (maxResultados > 0) {
+        // Con tope, el orden de las candidatas decide cuales propuestas se encuentran primero.
+        std::stable_sort(candidatas.begin(), candidatas.end(),
+            [exigente](const Materia& a, const Materia& b) {
+                return exigente ? a.getDificultad() > b.getDificultad()
+                                : a.getDificultad() < b.getDificultad();
+            });
+    }
     for (const Materia& m : grafo.getCatalogo()) {
         if (m.getCreditos() < 0) throw std::invalid_argument("Una materia tiene creditos negativos");
     }
     std::vector<Propuesta> resultado;
     std::vector<Materia> parcial;
     std::function<void(std::size_t, int)> buscar = [&](std::size_t inicio, int creditos) {
+        if (maxResultados > 0 && resultado.size() >= maxResultados) return; // Tope alcanzado.
         if (static_cast<int>(parcial.size()) == cantidad) {
             // No se comprueban antes: un correquisito puede agregarse mas adelante.
             for (const Materia& m : parcial) {
@@ -60,6 +90,15 @@ std::vector<Propuesta> Planificador::generar(const Grafo& grafo, int cantidad, i
         for (std::size_t i = inicio; i < candidatas.size(); ++i) {
             const Materia& m = candidatas[i];
             if (grafo.estaAprobada(m.getCodigo())) continue;
+            const std::string prefijo = "Trayectoria Profesionalizante: ";
+            if (!trayectoriasProfesionalizantes.empty() &&
+                m.getTipo().compare(0, prefijo.size(), prefijo) == 0 &&
+                std::find(trayectoriasProfesionalizantes.begin(),
+                          trayectoriasProfesionalizantes.end(),
+                          m.getTipo().substr(prefijo.size())) ==
+                    trayectoriasProfesionalizantes.end()) {
+                continue;
+            }
             bool cumple = true;
             for (const std::string& pre : m.getPrerrequisitos()) {
                 if (!grafo.estaAprobada(pre)) { cumple = false; break; }
@@ -112,4 +151,3 @@ void Planificador::ordenarPropuestas(std::vector<Propuesta>& propuestas, bool es
         );
     }
 }
-

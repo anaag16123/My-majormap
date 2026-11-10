@@ -1,6 +1,6 @@
 import { api, loadTemplate } from "./api.js";
 import { byId, createElement, createEmptyState, showMessage } from "./dom.js";
-import { state, createPlanningState } from "./state.js";
+import { state, createPlanningState, loadCustomConfig } from "./state.js";
 import { currentRoute, initializeNavigation } from "./navigation.js";
 import { initializeDetails } from "./details.js";
 import { mountHome } from "./views/home.js";
@@ -121,7 +121,13 @@ async function renderRoute(route = currentRoute(), moveFocus = false) {
         if (route === "pensum") {
             mountPensum(state.pensum, state.filters, {
                 onFilterChange: changes => Object.assign(state.filters, changes),
-                onOpenCourse: openCourse
+                onOpenCourse: openCourse,
+                onConfigChange: newConfig => {
+                    state.customConfig = newConfig;
+                    if (state.planning && newConfig.profesionalizantes) {
+                        state.planning.trajectories = [...newConfig.profesionalizantes];
+                    }
+                }
             });
         }
         if (route === "planificar") {
@@ -147,9 +153,29 @@ async function renderRoute(route = currentRoute(), moveFocus = false) {
     }
 }
 
+function attachTrayectorias(pensum) {
+    if (pensum && pensum.trayectorias && pensum.materias) {
+        const map = new Map();
+        for (const t of pensum.trayectorias) {
+            if (!map.has(t.codigo)) map.set(t.codigo, []);
+            map.get(t.codigo).push(t);
+        }
+        for (const m of pensum.materias) {
+            m.trayectorias = map.get(m.codigo) || [];
+        }
+    }
+    return pensum;
+}
+
 async function loadPensum() {
+    const select = byId("career-select");
+    const career = select.value;
+    if (!career) return;
+    try {
+        localStorage.setItem("majormap_carrera", career);
+    } catch {}
+
     const requestId = ++catalogRequest;
-    const career = byId("career-select").value;
     ++detailRequest;
     ++state.revision;
     state.loading = true;
@@ -158,22 +184,37 @@ async function loadPensum() {
     state.filters = { search: "", status: "TODAS" };
     invalidateProposals();
     details?.close();
+    select.disabled = true;
     showMessage("");
     renderRoute();
 
     try {
         const pensum = await api.getPensum(career);
         if (requestId !== catalogRequest) return;
+        attachTrayectorias(pensum);
         state.pensum = pensum;
+        state.customConfig = loadCustomConfig(career, pensum);
         state.loading = false;
         state.planning = createPlanningState();
+        if (state.customConfig?.profesionalizantes) {
+            state.planning.trajectories = [...state.customConfig.profesionalizantes];
+        }
+        const contextSub = byId("context-subtitle");
+        if (contextSub && pensum.nombre) {
+            contextSub.textContent = `${pensum.nombre} · Plan EAFIT`;
+        }
         await renderRoute();
+        showMessage(`Pensum de ${pensum.nombre} cargado correctamente.`, "success");
     } catch (error) {
         if (requestId !== catalogRequest) return;
         state.loading = false;
         state.loadError = error.message;
         await renderRoute();
         showMessage(error.message, "error", loadPensum);
+    } finally {
+        if (requestId === catalogRequest) {
+            select.disabled = false;
+        }
     }
 }
 
@@ -202,6 +243,7 @@ async function toggleApproved(course) {
     try {
         const pensum = await api.setApproved(course.career, course.codigo, course.estado !== "APROBADA");
         if (revision !== state.revision) return;
+        attachTrayectorias(pensum);
         state.pensum = pensum;
         ++state.revision;
         ++detailRequest;
@@ -232,7 +274,9 @@ async function generateProposals({
 }, { automatic = false } = {}) {
     if (!state.pensum || state.updating || state.planning.loading) return;
     if (!Number.isInteger(quantity) || !Number.isInteger(credits) ||
-        quantity <= 0 || credits <= 0 || credits > 24) {
+        quantity <= 0 || credits <= 0 || credits > 24 ||
+        (state.pensum.materias.some(course => course.tipo?.startsWith("Trayectoria Profesionalizante:")) &&
+            state.planning.trajectories.length !== 2)) {
         if (!automatic) showMessage("Escribe una cantidad positiva y un máximo de hasta 24 créditos.");
         return;
     }
@@ -249,19 +293,20 @@ async function generateProposals({
     if (!automatic) showMessage("");
 
     try {
-        const result = await api.getProposals(career, quantity, credits, esExigente);
+        const result = await api.getProposals(career, quantity, credits, esExigente, state.planning.trajectories);
         if (requestId !== proposalRequest || revision !== state.revision) return;
         let blocking = null;
         if (!result.propuestas.length) {
             // Samu: sin propuestas se pide la explicación del bloqueo y las alternativas.
             // Si esta consulta falla, la vista muestra el mensaje general.
             try {
-                blocking = await api.getBlocking(career, quantity, credits);
+                blocking = await api.getBlocking(career, quantity, credits, state.planning.trajectories);
             } catch {
                 blocking = null;
             }
             if (requestId !== proposalRequest || revision !== state.revision) return;
         }
+        state.planning.limited = Boolean(result.limitado);
         state.planning.proposals = result.propuestas;
         state.planning.blocking = blocking;
     } catch (error) {
@@ -292,7 +337,17 @@ async function initializeData() {
         const select = byId("career-select");
         select.replaceChildren();
         for (const career of careers) select.add(new Option(career.nombre, career.id));
-        if (careers.some(career => career.id === "sistemas")) select.value = "sistemas";
+
+        let savedCareer = null;
+        try {
+            savedCareer = localStorage.getItem("majormap_carrera");
+        } catch {}
+
+        if (savedCareer && careers.some(career => career.id === savedCareer)) {
+            select.value = savedCareer;
+        } else if (careers.some(career => career.id === "sistemas")) {
+            select.value = "sistemas";
+        }
         select.disabled = false;
         await loadPensum();
     } catch (error) {

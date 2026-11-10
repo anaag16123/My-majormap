@@ -53,7 +53,7 @@ bool CargadorPensum::cargar(const std::string& ruta,
             error = "Linea " + std::to_string(numeroLinea) + ": faltan campos";
             return false;
         }
-        while (campos.size() < 7) campos.push_back("");
+        while (campos.size() < 8) campos.push_back("");
 
         try {
             materias.emplace_back(campos[0],
@@ -62,12 +62,42 @@ bool CargadorPensum::cargar(const std::string& ruta,
                                   std::stoi(campos[3]),
                                   std::stoi(campos[4]),
                                   separarLista(campos[5]),
-                                  separarLista(campos[6]));
+                                  separarLista(campos[6]),
+                                  campos[7]);
         } catch (...) {
             error = "Linea " + std::to_string(numeroLinea) +
                     ": semestre, creditos y dificultad deben ser numeros";
             return false;
         }
+    }
+    return true;
+}
+
+bool CargadorPensum::cargarTrayectorias(const std::string& ruta,
+                                      std::vector<RegistroTrayectoria>& registros,
+                                      std::string& error) {
+    std::ifstream archivo(ruta);
+    if (!archivo.is_open()) {
+        error = "No se pudo abrir el archivo: " + ruta;
+        return false;
+    }
+
+    registros.clear();
+    std::string linea;
+    int numeroLinea = 0;
+
+    while (std::getline(archivo, linea)) {
+        numeroLinea++;
+        linea = recortar(linea);
+        if (numeroLinea == 1 || linea.empty()) continue; // encabezado o linea vacia
+
+        std::vector<std::string> campos = separar(linea, ';');
+        if (campos.size() < 5) {
+            error = "Linea " + std::to_string(numeroLinea) + ": faltan campos";
+            return false;
+        }
+
+        registros.push_back({campos[0], campos[1], campos[2], campos[3], campos[4]});
     }
     return true;
 }

@@ -1,0 +1,310 @@
+programa;codigo;nombre;grupo;tipo_grupo
+Ingeniería Física;MC4011;Dinámica y Simulación Robótica;Robótica;Trayectoria Flexible
+Ingeniería Física;MC4012;Sensores y Actuadores en Robótica;Robótica;Trayectoria Flexible
+Ingeniería Física;MC5003;Inteligencia Artificiales en Robótica;Robótica;Trayectoria Flexible
+Ingeniería Física;MC5004;Visión Artificial;Robótica;Trayectoria Flexible
+Ingeniería Física;MC4013;Dinámica de Vehículos;Vehículos;Trayectoria Flexible
+Ingeniería Física;MC4014;Fundamentos de Combustión y Emisiones;Vehículos;Trayectoria Flexible
+Ingeniería Física;MC5005;Motores de Combustión Interna;Vehículos;Trayectoria Flexible
+Ingeniería Física;MC5006;Vehículos Híbridos y Eléctricos;Vehículos;Trayectoria Flexible
+Ingeniería Física;MF2001;Microeconomía General;Economía;Trayectoria Flexible
+Ingeniería Física;MF2003;Microeconomía 2: Teoría de Juegos, Estrategia y Economía de la Información;Economía;Trayectoria Flexible
+Ingeniería Física;MS1001;Introducción a la Economía Colombiana;Economía;Trayectoria Flexible
+Ingeniería Física;MS1002;Macroeconomía General;Economía;Trayectoria Flexible
+Ingeniería Física;MS1001;Introducción a la Economía Colombiana;Historia Económica;Trayectoria Flexible
+Ingeniería Física;PD1001;Historia Económica General;Historia Económica;Trayectoria Flexible
+Ingeniería Física;PD2001;Historia del Pensamiento Económico;Historia Económica;Trayectoria Flexible
+Ingeniería Física;PD4002;Historia Económica de Colombia;Historia Económica;Trayectoria Flexible
+Ingeniería Física;CO0133;Fundamentos de Contabilidad;Análisis Financiero;Trayectoria Flexible
+Ingeniería Física;FI0141;Matemáticas Financieras;Análisis Financiero;Trayectoria Flexible
+Ingeniería Física;FI0231;Análisis Financiero;Análisis Financiero;Trayectoria Flexible
+Ingeniería Física;MS1001;Introducción a la Economía Colombiana;Análisis Financiero;Trayectoria Flexible
+Ingeniería Física;CO0133;Fundamentos de Contabilidad;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería Física;FI0141;Matemáticas Financieras;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería Física;MS1001;Introducción a la Economía Colombiana;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería Física;OG0261;Evaluación Financiera de Proyectos;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería Física;OG0124;Organizaciones;Estrategia;Trayectoria Flexible
+Ingeniería Física;OG0125;Estrategia;Estrategia;Trayectoria Flexible
+Ingeniería Física;OG0358;Fundamentos de Administración;Estrategia;Trayectoria Flexible
+Ingeniería Física;OG0363;Gestión Humana;Estrategia;Trayectoria Flexible
+Ingeniería Física;OG0124;Organizaciones;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería Física;OG0358;Fundamentos de Administración;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería Física;OG0363;Gestión Humana;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería Física;OG0376;Dirección y liderazgo;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería Física;OG0124;Organizaciones;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería Física;OG0125;Estrategia;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería Física;OG0358;Fundamentos de Administración;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería Física;OG0375;Gerencia Estratégica;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería Física;OG0124;Organizaciones;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería Física;OG0125;Estrategia;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería Física;OG0358;Fundamentos de Administración;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería Física;OG0374;Gestión del Conocimiento e Innovación;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería Física;FI0141;Matemáticas Financieras;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería Física;OG0261;Evaluación Financiera de Proyectos;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería Física;OG0264;Gestión de Proyectos;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería Física;OG0368;Formulación y Evaluación de Proyectos;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería Física;DE0502;Derecho Empresarial;Derecho empresarial;Trayectoria Flexible
+Ingeniería Física;CO0328;Marco Tributario para las Organizaciones;Derecho empresarial;Trayectoria Flexible
+Ingeniería Física;OG0124;Organizaciones;Derecho empresarial;Trayectoria Flexible
+Ingeniería Física;OG0358;Fundamentos de Administración;Derecho empresarial;Trayectoria Flexible
+Ingeniería Física;CO0135;Costos para Toma de Decisiones;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería Física;CO0334;Información Financiera para la Toma de Decisiones;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería Física;FI0141;Matemáticas Financieras;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería Física;OG0368;Formulación y Evaluación de Proyectos;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería Física;NI0100;Mercadeo Internacional;Negocios Internacionales;Trayectoria Flexible
+Ingeniería Física;NI0104;Negocios Internacionales;Negocios Internacionales;Trayectoria Flexible
+Ingeniería Física;NI0299;Gestión Intercultural;Negocios Internacionales;Trayectoria Flexible
+Ingeniería Física;NI0329;Estrategia Internacional;Negocios Internacionales;Trayectoria Flexible
+Ingeniería Física;NI0104;Negocios Internacionales;Talento Internacional;Trayectoria Flexible
+Ingeniería Física;NI0298;Turismo: Ocio y Negocio;Talento Internacional;Trayectoria Flexible
+Ingeniería Física;NI0299;Gestión Intercultural;Talento Internacional;Trayectoria Flexible
+Ingeniería Física;NI0302;Desarrollo del Talento Internacional;Talento Internacional;Trayectoria Flexible
+Ingeniería Física;EC0418;Economía;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería Física;EC0421;Economía del Comercio Internacional;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería Física;FI0138;Fundamentos de Finanzas;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería Física;FI0224;Finanzas Internacionales;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería Física;HL0311;Introducción a los Géneros Literarios;Géneros Literarios;Trayectoria Flexible
+Ingeniería Física;HL0323;Estudios del Texto Narrativo;Géneros Literarios;Trayectoria Flexible
+Ingeniería Física;HL0328;Estudios del Texto Dramático;Géneros Literarios;Trayectoria Flexible
+Ingeniería Física;HL0337;Estudios del Texto Ensayístico;Géneros Literarios;Trayectoria Flexible
+Ingeniería Física;HL0311;Introducción a los Géneros Literarios;Literatura;Trayectoria Flexible
+Ingeniería Física;HL0324;Estudios de Literatura Hispánica;Literatura;Trayectoria Flexible
+Ingeniería Física;HL0340;Estudios de Literatura Latinoamericana;Literatura;Trayectoria Flexible
+Ingeniería Física;HL0342;Estudios de Literatura Colombiana;Literatura;Trayectoria Flexible
+Ingeniería Física;CS0232;Periodismo Informativo;Periodismo;Trayectoria Flexible
+Ingeniería Física;CS0025;Reportaje;Periodismo;Trayectoria Flexible
+Ingeniería Física;CS0235;Periodismo Narrativo;Periodismo;Trayectoria Flexible
+Ingeniería Física;CS0237;Periodismo de Opinión;Periodismo;Trayectoria Flexible
+Ingeniería Física;CS0232;Periodismo Informativo;Comunicaciones;Trayectoria Flexible
+Ingeniería Física;CS0233;Producción Radiofónica;Comunicaciones;Trayectoria Flexible
+Ingeniería Física;CS0238;Lenguaje Audiovisual;Comunicaciones;Trayectoria Flexible
+Ingeniería Física;CS0248;Visualización de Información;Comunicaciones;Trayectoria Flexible
+Ingeniería Física;CS0238;Lenguaje Audiovisual;Diseño Interactivo;Trayectoria Flexible
+Ingeniería Física;CS0268;Creación de Universos Narrativos;Diseño Interactivo;Trayectoria Flexible
+Ingeniería Física;CS0272;Diseño de Sonido;Diseño Interactivo;Trayectoria Flexible
+Ingeniería Física;CS0280;Narrativas en Realidad Virtual y Mixta;Diseño Interactivo;Trayectoria Flexible
+Ingeniería Física;PS0300;Historia de la Psicología;Psicología;Trayectoria Flexible
+Ingeniería Física;PS0307;Teoría y Autores en Psicología Humanista;Psicología;Trayectoria Flexible
+Ingeniería Física;PS0311;Teoría y Autores en Psicología Cognitiva;Psicología;Trayectoria Flexible
+Ingeniería Física;PS0321;Teoría y Autores Contemporáneos en Psicología Dinámica;Psicología;Trayectoria Flexible
+Ingeniería Física;CV1001;Geomática, Topografía y SIG;Transporte;Trayectoria Flexible
+Ingeniería Física;CV2004;Ingeniería del Transporte;Transporte;Trayectoria Flexible
+Ingeniería Física;CV3003;Infraestructura del Transporte;Transporte;Trayectoria Flexible
+Ingeniería Física;CV3005;TICs en la Construcción;Transporte;Trayectoria Flexible
+Ingeniería Física;CI3003;Fundamentos de Blockchain y Sistemas DLT;Blockchain;Trayectoria Flexible
+Ingeniería Física;CI3004;Blockchain 2.0: Contratos inteligentes;Blockchain;Trayectoria Flexible
+Ingeniería Física;CI4004;Criptoeconomía y Gobierno de Sistemas DLT;Blockchain;Trayectoria Flexible
+Ingeniería Física;CI5003;Proyecto Blockchain;Blockchain;Trayectoria Flexible
+Ingeniería Física;PN3003;Fábricas Inteligentes;Fábricas Inteligentes;Trayectoria Flexible
+Ingeniería Física;PN3008;Inteligencia Artificial para Manufactura;Fábricas Inteligentes;Trayectoria Flexible
+Ingeniería Física;PN3009;Manufactura Adaptativa;Fábricas Inteligentes;Trayectoria Flexible
+Ingeniería Física;PN4003;Gemelos Digitales;Fábricas Inteligentes;Trayectoria Flexible
+Ingeniería Física;PN3001;Excelencia Operacional;Excelencia Operacional;Trayectoria Flexible
+Ingeniería Física;PN3006;Análisis y Mejora de Procesos;Excelencia Operacional;Trayectoria Flexible
+Ingeniería Física;PN3007;Medición y Control de Procesos;Excelencia Operacional;Trayectoria Flexible
+Ingeniería Física;PN4001;Diseño Esbelto;Excelencia Operacional;Trayectoria Flexible
+Ingeniería Física;PN3004;Gestión de Tecnología e Innovación;Transformación Digital;Trayectoria Flexible
+Ingeniería Física;PN4006;Innovación Tecnológica;Transformación Digital;Trayectoria Flexible
+Ingeniería Física;PN4007;Inteligencia Competitiva para la Innovación;Transformación Digital;Trayectoria Flexible
+Ingeniería Física;PN4008;Transformación Digital;Transformación Digital;Trayectoria Flexible
+Ingeniería Física;PN2002;IoT Industrial;Innovación Ciber Física;Trayectoria Flexible
+Ingeniería Física;PN2006;Computación en Nube;Innovación Ciber Física;Trayectoria Flexible
+Ingeniería Física;PN2007;Digitalización de Plantas Productivas;Innovación Ciber Física;Trayectoria Flexible
+Ingeniería Física;PN3002;Robótica;Innovación Ciber Física;Trayectoria Flexible
+Ingeniería Física;CI4001;Trayectoria Flexible 1;Genérica;Trayectoria Flexible
+Ingeniería Física;CI4002;Trayectoria Flexible 2;Genérica;Trayectoria Flexible
+Ingeniería Física;CI5001;Trayectoria Flexible 3;Genérica;Trayectoria Flexible
+Ingeniería Física;CI5002;Trayectoria Flexible 4;Genérica;Trayectoria Flexible
+Ingeniería Física;BL1001;Biología General;Ciencias Naturales;Trayectoria Flexible
+Ingeniería Física;BL1003;Biología Celular;Ciencias Naturales;Trayectoria Flexible
+Ingeniería Física;GL1001;Geociencias;Ciencias Naturales;Trayectoria Flexible
+Ingeniería Física;GL2007;Cambio Climático;Ciencias Naturales;Trayectoria Flexible
+Ingeniería Física;FS3006;Ciencias de los Materiales;Materiales Funcionales;Trayectoria Profesionalizante
+Ingeniería Física;FS4001;Materiales Avanzados;Materiales Funcionales;Trayectoria Profesionalizante
+Ingeniería Física;FS4002;Fundamentos de Caracterización de Materiales;Materiales Funcionales;Trayectoria Profesionalizante
+Ingeniería Física;FS4007;Proyecto de Materiales Funcionales;Materiales Funcionales;Trayectoria Profesionalizante
+Ingeniería Física;FS3007;Fundamentos de Señales Electromagnéticas;Ingeniería Óptica;Trayectoria Profesionalizante
+Ingeniería Física;FS4003;Instrumentación de Dispositivos Electroópticos;Ingeniería Óptica;Trayectoria Profesionalizante
+Ingeniería Física;FS4004;Procesamiento de Señales;Ingeniería Óptica;Trayectoria Profesionalizante
+Ingeniería Física;FS4008;Proyecto de Ingeniería Óptica;Ingeniería Óptica;Trayectoria Profesionalizante
+Ingeniería Física;FS3008;Dinámica y Estructura de Sistemas Físicos;Física Avanzada;Trayectoria Profesionalizante
+Ingeniería Física;FS4005;Física Estadística e Introducción a la Teoría de la Información;Física Avanzada;Trayectoria Profesionalizante
+Ingeniería Física;FS4006;Computación Cuántica;Física Avanzada;Trayectoria Profesionalizante
+Ingeniería Física;FS4009;Proyecto de Física Avanzada;Física Avanzada;Trayectoria Profesionalizante
+Ingeniería de Sistemas;CI3003;Fundamentos de Blockchain y Sistemas DLT;Blockchain;Trayectoria Profesionalizante
+Ingeniería de Sistemas;CI3004;Blockchain 2.0: Contratos inteligentes;Blockchain;Trayectoria Profesionalizante
+Ingeniería de Sistemas;CI4004;Criptoeconomía y Gobierno de Sistemas DLT;Blockchain;Trayectoria Profesionalizante
+Ingeniería de Sistemas;CI5003;Proyecto Blockchain;Blockchain;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3007;Sistemas Distribuidos;Infraestructura TI;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3016;Computación en Nube;Infraestructura TI;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4001;Aplicaciones y Sistemas Escalables;Infraestructura TI;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4003;Proyecto en Infraestructura TI;Infraestructura TI;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3008;Sistemas Intensivos de Datos;Ingeniería de Datos;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3009;Bases de Datos Avanzadas;Ingeniería de Datos;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3010;Gestión y Gobernanza de Datos;Ingeniería de Datos;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4002;Proyecto Ingeniería de Datos;Ingeniería de Datos;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3012;Ingeniería de Software para Aplicaciones Web;Desarrollo de Software;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3013;Pruebas de Software;Desarrollo de Software;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4004;Interacción Humano Computador;Desarrollo de Software;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4005;Proyecto en Desarrollo de Software;Desarrollo de Software;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3014;Redes Neuronales y Aprendizaje Profundo;Inteligencia Artificial;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3015;Fundamentos de Aprendizaje Automático;Inteligencia Artificial;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4006;Tópicos Especiales y Aplicaciones en Inteligencia Artificial;Inteligencia Artificial;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI5001;Proyecto en Inteligencia Artificial;Inteligencia Artificial;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3017;Automatización de Procesos de Negocios;Sistemas de Información;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI3018;Gestión de TI;Sistemas de Información;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4007;Inteligencia de Negocios;Sistemas de Información;Trayectoria Profesionalizante
+Ingeniería de Sistemas;SI4008;Proyecto Sistemas de Información;Sistemas de Información;Trayectoria Profesionalizante
+Ingeniería de Sistemas;MF2001;Microeconomía General;Economía;Trayectoria Flexible
+Ingeniería de Sistemas;MF2003;Microeconomía 2: Teoría de Juegos, Estrategia y Economía de la Información;Economía;Trayectoria Flexible
+Ingeniería de Sistemas;MS1001;Introducción a la Economía Colombiana;Economía;Trayectoria Flexible
+Ingeniería de Sistemas;MS1002;Macroeconomía General;Economía;Trayectoria Flexible
+Ingeniería de Sistemas;MS1001;Introducción a la Economía Colombiana;Historia Económica;Trayectoria Flexible
+Ingeniería de Sistemas;PD1001;Historia Económica General;Historia Económica;Trayectoria Flexible
+Ingeniería de Sistemas;PD2001;Historia del Pensamiento Económico;Historia Económica;Trayectoria Flexible
+Ingeniería de Sistemas;PD4002;Historia Económica de Colombia;Historia Económica;Trayectoria Flexible
+Ingeniería de Sistemas;CO0133;Fundamentos de Contabilidad;Análisis Financiero;Trayectoria Flexible
+Ingeniería de Sistemas;FI0141;Matemáticas Financieras;Análisis Financiero;Trayectoria Flexible
+Ingeniería de Sistemas;FI0231;Análisis Financiero;Análisis Financiero;Trayectoria Flexible
+Ingeniería de Sistemas;MS1001;Introducción a la Economía Colombiana;Análisis Financiero;Trayectoria Flexible
+Ingeniería de Sistemas;CO0133;Fundamentos de Contabilidad;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;FI0141;Matemáticas Financieras;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;MS1001;Introducción a la Economía Colombiana;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;OG0261;Evaluación Financiera de Proyectos;Evaluación Financiera de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;OG0124;Organizaciones;Estrategia;Trayectoria Flexible
+Ingeniería de Sistemas;OG0125;Estrategia;Estrategia;Trayectoria Flexible
+Ingeniería de Sistemas;OG0358;Fundamentos de Administración;Estrategia;Trayectoria Flexible
+Ingeniería de Sistemas;OG0363;Gestión Humana;Estrategia;Trayectoria Flexible
+Ingeniería de Sistemas;OG0124;Organizaciones;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería de Sistemas;OG0358;Fundamentos de Administración;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería de Sistemas;OG0363;Gestión Humana;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería de Sistemas;OG0376;Dirección y liderazgo;Dirección y Liderazgo;Trayectoria Flexible
+Ingeniería de Sistemas;OG0124;Organizaciones;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería de Sistemas;OG0125;Estrategia;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería de Sistemas;OG0358;Fundamentos de Administración;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería de Sistemas;OG0375;Gerencia Estratégica;Gerencia Estratégica;Trayectoria Flexible
+Ingeniería de Sistemas;OG0124;Organizaciones;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería de Sistemas;OG0125;Estrategia;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería de Sistemas;OG0358;Fundamentos de Administración;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería de Sistemas;OG0374;Gestión del Conocimiento e Innovación;Gerencia del Conocimiento;Trayectoria Flexible
+Ingeniería de Sistemas;FI0141;Matemáticas Financieras;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;OG0261;Evaluación Financiera de Proyectos;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;OG0264;Gestión de Proyectos;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;OG0368;Formulación y Evaluación de Proyectos;Gerencia de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;DE0502;Derecho Empresarial;Derecho empresarial;Trayectoria Flexible
+Ingeniería de Sistemas;CO0328;Marco Tributario para las Organizaciones;Derecho empresarial;Trayectoria Flexible
+Ingeniería de Sistemas;OG0124;Organizaciones;Derecho empresarial;Trayectoria Flexible
+Ingeniería de Sistemas;OG0358;Fundamentos de Administración;Derecho empresarial;Trayectoria Flexible
+Ingeniería de Sistemas;CO0334;Información Financiera para la Toma de Decisiones;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;CO0135;Costos para Toma de Decisiones;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;FI0141;Matemáticas Financieras;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;OG0368;Formulación y Evaluación de Proyectos;Formulación y Evaluación de Proyectos;Trayectoria Flexible
+Ingeniería de Sistemas;NI0100;Mercadeo Internacional;Negocios Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;NI0104;Negocios Internacionales;Negocios Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;NI0299;Gestión Intercultural;Negocios Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;NI0329;Estrategia Internacional;Negocios Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;NI0104;Negocios Internacionales;Talento Internacional;Trayectoria Flexible
+Ingeniería de Sistemas;NI0298;Turismo: Ocio y Negocio;Talento Internacional;Trayectoria Flexible
+Ingeniería de Sistemas;NI0299;Gestión Intercultural;Talento Internacional;Trayectoria Flexible
+Ingeniería de Sistemas;NI0302;Desarrollo del Talento Internacional;Talento Internacional;Trayectoria Flexible
+Ingeniería de Sistemas;EC0418;Economía;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;EC0421;Economía del Comercio Internacional;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;FI0138;Fundamentos de Finanzas;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;FI0224;Finanzas Internacionales;Finanzas Internacionales;Trayectoria Flexible
+Ingeniería de Sistemas;HL0311;Introducción a los Géneros Literarios;Géneros Literarios;Trayectoria Flexible
+Ingeniería de Sistemas;HL0323;Estudios del Texto Narrativo;Géneros Literarios;Trayectoria Flexible
+Ingeniería de Sistemas;HL0328;Estudios del Texto Dramático;Géneros Literarios;Trayectoria Flexible
+Ingeniería de Sistemas;HL0337;Estudios del Texto Ensayístico;Géneros Literarios;Trayectoria Flexible
+Ingeniería de Sistemas;HL0311;Introducción a los Géneros Literarios;Literatura;Trayectoria Flexible
+Ingeniería de Sistemas;HL0324;Estudios de Literatura Hispánica;Literatura;Trayectoria Flexible
+Ingeniería de Sistemas;HL0340;Estudios de Literatura Latinoamericana;Literatura;Trayectoria Flexible
+Ingeniería de Sistemas;HL0342;Estudios de Literatura Colombiana;Literatura;Trayectoria Flexible
+Ingeniería de Sistemas;CS0232;Periodismo Informativo;Periodismo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0025;Reportaje;Periodismo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0235;Periodismo Narrativo;Periodismo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0237;Periodismo de Opinión;Periodismo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0232;Periodismo Informativo;Comunicaciones;Trayectoria Flexible
+Ingeniería de Sistemas;CS0233;Producción Radiofónica;Comunicaciones;Trayectoria Flexible
+Ingeniería de Sistemas;CS0238;Lenguaje Audiovisual;Comunicaciones;Trayectoria Flexible
+Ingeniería de Sistemas;CS0248;Visualización de Información;Comunicaciones;Trayectoria Flexible
+Ingeniería de Sistemas;CS0238;Lenguaje Audiovisual;Diseño Interactivo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0268;Creación de Universos Narrativos;Diseño Interactivo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0272;Diseño de Sonido;Diseño Interactivo;Trayectoria Flexible
+Ingeniería de Sistemas;CS0280;Narrativas en Realidad Virtual y Mixta;Diseño Interactivo;Trayectoria Flexible
+Ingeniería de Sistemas;PS0300;Historia de la Psicología;Psicología;Trayectoria Flexible
+Ingeniería de Sistemas;PS0307;Teoría y Autores en Psicología Humanista;Psicología;Trayectoria Flexible
+Ingeniería de Sistemas;PS0311;Teoría y Autores en Psicología Cognitiva;Psicología;Trayectoria Flexible
+Ingeniería de Sistemas;PS0321;Teoría y Autores Contemporáneos en Psicología Dinámica;Psicología;Trayectoria Flexible
+Ingeniería de Sistemas;CI4001;Trayectoria Flexible 1;Genérica;Trayectoria Flexible
+Ingeniería de Sistemas;CI4002;Trayectoria Flexible 2;Genérica;Trayectoria Flexible
+Ingeniería de Sistemas;CI5001;Trayectoria Flexible 3;Genérica;Trayectoria Flexible
+Ingeniería de Sistemas;CI5002;Trayectoria Flexible 4;Genérica;Trayectoria Flexible
+Ingeniería de Sistemas;FS2005;Física Moderna;Materiales Funcionales;Trayectoria Flexible
+Ingeniería de Sistemas;FS3004;Física del Estado Sólido;Materiales Funcionales;Trayectoria Flexible
+Ingeniería de Sistemas;FS3006;Ciencias de los Materiales;Materiales Funcionales;Trayectoria Flexible
+Ingeniería de Sistemas;FS4002;Fundamentos de Caracterización de Materiales;Materiales Funcionales;Trayectoria Flexible
+Ingeniería de Sistemas;FS2002;Óptica;Ingeniería Óptica;Trayectoria Flexible
+Ingeniería de Sistemas;FS2004;Electromagnetismo;Ingeniería Óptica;Trayectoria Flexible
+Ingeniería de Sistemas;FS3007;Fundamentos de Señales Electromagnéticas;Ingeniería Óptica;Trayectoria Flexible
+Ingeniería de Sistemas;FS4003;Instrumentación de Dispositivos Electroópticos;Ingeniería Óptica;Trayectoria Flexible
+Ingeniería de Sistemas;FS2005;Física Moderna;Física Avanzada;Trayectoria Flexible
+Ingeniería de Sistemas;FS3002;Mecánica Cuántica;Física Avanzada;Trayectoria Flexible
+Ingeniería de Sistemas;FS3008;Dinámica y Estructura de Sistemas Físicos;Física Avanzada;Trayectoria Flexible
+Ingeniería de Sistemas;FS4006;Computación Cuántica;Física Avanzada;Trayectoria Flexible
+Ingeniería de Sistemas;FS2002;Óptica;Tópicos de Física para Ingenieros;Trayectoria Flexible
+Ingeniería de Sistemas;FS2004;Electromagnetismo;Tópicos de Física para Ingenieros;Trayectoria Flexible
+Ingeniería de Sistemas;FS2005;Física Moderna;Tópicos de Física para Ingenieros;Trayectoria Flexible
+Ingeniería de Sistemas;FS3002;Mecánica Cuántica;Tópicos de Física para Ingenieros;Trayectoria Flexible
+Ingeniería de Sistemas;BL1001;Biología General;Ciencias Naturales;Trayectoria Flexible
+Ingeniería de Sistemas;BL1003;Biología Celular;Ciencias Naturales;Trayectoria Flexible
+Ingeniería de Sistemas;GL1001;Geociencias;Ciencias Naturales;Trayectoria Flexible
+Ingeniería de Sistemas;GL2007;Cambio Climático;Ciencias Naturales;Trayectoria Flexible
+Ingeniería de Sistemas;ID0663;Diseño Conceptual Mecatrónico;Diseño Integrado de Sistemas Técnicos;Línea de Énfasis
+Ingeniería de Sistemas;ID0667;Lenguajes Técnicos de Programación;Diseño Integrado de Sistemas Técnicos;Línea de Énfasis
+Ingeniería de Sistemas;ID0673;Actuadores y Sensores;Diseño Integrado de Sistemas Técnicos;Línea de Énfasis
+Ingeniería de Sistemas;ID0685;Equipos para Interfaces entre Procesos;Diseño Integrado de Sistemas Técnicos;Línea de Énfasis
+Ingeniería de Sistemas;ST1627;Pensamiento Arquitectónico para Soluciones de Ti;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1628;Redes para Sistemas de Alto Desempeño;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1629;Computación en Nube;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1630;Sistemas Intensivos en Datos;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1631;Aprendizaje de Máquina Aplicado;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1632;Estrategias de Innovación en Ecosistemas Digitales;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1633;Diseño de la Experiencia de Usuario;Infraestructura TI;Línea de Énfasis
+Ingeniería de Sistemas;ST1623;Procesos Modernos de Desarrollo de Software;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;ST1624;Integración y Entrega Continua de Software;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;ST1625;Arquitecturas Avanzadas de Software;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;ST1626;Desarrollo de Sistemas Seguros;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;ST1631;Aprendizaje de Máquina Aplicado;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;ST1632;Estrategias de Innovación en Ecosistemas Digitales;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;ST1633;Diseño de la Experiencia de Usuario;Desarrollo de Software;Línea de Énfasis
+Ingeniería de Sistemas;OG0260;Preparación de Proyectos;Gerencia de Proyectos;Línea de Énfasis
+Ingeniería de Sistemas;OG0261;Evaluación Financiera de Proyectos;Gerencia de Proyectos;Línea de Énfasis
+Ingeniería de Sistemas;OG0262;Evaluación Ambiental de Proyectos;Gerencia de Proyectos;Línea de Énfasis
+Ingeniería de Sistemas;OG0263;Análisis de Riesgos;Gerencia de Proyectos;Línea de Énfasis
+Ingeniería de Sistemas;OG0264;Gestión de Proyectos;Gerencia de Proyectos;Línea de Énfasis
+Ingeniería de Sistemas;NM6001;Matemáticas Aplicada;Ciencias de los Datos;Línea de Énfasis
+Ingeniería de Sistemas;NM6002;Estadística Aplicada;Ciencias de los Datos;Línea de Énfasis
+Ingeniería de Sistemas;SI6001;Fundamentos en Ciencias de Datos;Ciencias de los Datos;Línea de Énfasis
+Ingeniería de Sistemas;SI6002;Aprendizaje Automático;Ciencias de los Datos;Línea de Énfasis
+Ingeniería de Sistemas;SI6003;Almacenamiento y Procesamiento de Grandes Datos;Ciencias de los Datos;Línea de Énfasis
+Ingeniería de Sistemas;SI6004;Visualización de Datos;Ciencias de los Datos;Línea de Énfasis
+Ingeniería de Sistemas;ST1619;Arquitectura Empresarial;Sistemas de Información;Línea de Énfasis
+Ingeniería de Sistemas;ST1620;Gestión Estratégica de Ti;Sistemas de Información;Línea de Énfasis
+Ingeniería de Sistemas;ST1621;Inteligencia Analítica Empresarial;Sistemas de Información;Línea de Énfasis
+Ingeniería de Sistemas;ST1622;Innovación de Procesos Empresariales;Sistemas de Información;Línea de Énfasis
+Ingeniería de Sistemas;ST1631;Aprendizaje de Máquina Aplicado;Sistemas de Información;Línea de Énfasis
+Ingeniería de Sistemas;ST1632;Estrategias de Innovación en Ecosistemas Digitales;Sistemas de Información;Línea de Énfasis
+Ingeniería de Sistemas;ST1633;Diseño de la Experiencia de Usuario;Sistemas de Información;Línea de Énfasis
+Ingeniería Física;SI5002;Procesos Modernos de Desarrollo de Software;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;SI5003;Arquitecturas Avanzadas de Software;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;SI5004;Desarrollo de Sistemas Seguros;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;SI5005;Integración y Entrega Continua de Software;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;ST1631;Aprendizaje de Máquina Aplicado - Electiva;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;ST1632;Estrategias de Innovación en Ecosistemas Digitales - Electiva;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;ST1633;Diseño de la Experiencia de Usuario - Electiva;Desarrollo de Software;Línea de Énfasis
+Ingeniería Física;IN5001;Estrategia de Operaciones y Logística;Dirección de Operaciones y Logística;Línea de Énfasis
+Ingeniería Física;IN5002;Planeación de Ventas y Operaciones;Dirección de Operaciones y Logística;Línea de Énfasis
+Ingeniería Física;IN5003;Gestión de Inventarios;Dirección de Operaciones y Logística;Línea de Énfasis
+Ingeniería Física;IN5004;Gestión de Almacenes;Dirección de Operaciones y Logística;Línea de Énfasis
+Ingeniería Física;IN5005;Compras, Proveedores y Negociación;Dirección de Operaciones y Logística;Línea de Énfasis
+Ingeniería Física;IN5006;Gerencia de Proyectos;Dirección de Operaciones y Logística;Línea de Énfasis

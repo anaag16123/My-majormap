@@ -2,8 +2,12 @@
 #include "../logic/Planificador.h"
 #include <sstream>
 #include <stdexcept>
+#include <algorithm>
 
 namespace {
+
+// Tope de propuestas: con pensums reales hay millones de combinaciones.
+const std::size_t MAX_PROPUESTAS = 100;
 std::string escapar(const std::string& texto) {
     const char* hex = "0123456789abcdef";
     std::string resultado;
@@ -25,6 +29,7 @@ void error(httplib::Response& res, int estado, const std::string& mensaje) {
 std::string materiaJson(const Materia& materia) {
     return "{\"codigo\":\"" + escapar(materia.getCodigo()) + "\",\"nombre\":\"" +
         escapar(materia.getNombre()) + "\",\"creditos\":" + std::to_string(materia.getCreditos()) +
+        ",\"tipo\":\"" + escapar(materia.getTipo()) + "\"" +
         ",\"dificultad\":" + std::to_string(materia.getDificultad()) + "}";
 }
 std::string materiasJson(const std::vector<Materia>& materias) {
@@ -41,6 +46,30 @@ int positivo(const std::string& texto) {
     int numero = std::stoi(texto);
     if (numero <= 0) throw std::invalid_argument("Parametro invalido");
     return numero;
+}
+std::vector<std::string> separarTrayectorias(const std::string& texto) {
+    std::vector<std::string> resultado;
+    std::stringstream stream(texto);
+    std::string trayectoria;
+    while (std::getline(stream, trayectoria, ',')) {
+        if (!trayectoria.empty() &&
+            std::find(resultado.begin(), resultado.end(), trayectoria) == resultado.end()) {
+            resultado.push_back(trayectoria);
+        }
+    }
+    return resultado;
+}
+std::vector<std::string> trayectoriasProfesionalizantes(const Grafo& grafo) {
+    const std::string prefijo = "Trayectoria Profesionalizante: ";
+    std::vector<std::string> resultado;
+    for (const Materia& materia : grafo.getCatalogo()) {
+        if (materia.getTipo().compare(0, prefijo.size(), prefijo) != 0) continue;
+        std::string nombre = materia.getTipo().substr(prefijo.size());
+        if (std::find(resultado.begin(), resultado.end(), nombre) == resultado.end()) {
+            resultado.push_back(nombre);
+        }
+    }
+    return resultado;
 }
 }
 
@@ -70,6 +99,7 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
         } catch (const std::exception&) {
             return error(res, 400, "Cantidad y creditos deben ser enteros positivos validos");
         }
+        if (creditos > 24) return error(res, 400, "El máximo por semestre es de 24 créditos");
 
         // Lectura del parámetro de preferencia/exigencia
         // Permite soportar: exigente=true/1, preferencia=exigente/suave o modo=exigente/suave
@@ -89,9 +119,19 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
             if (carrera == ctx.carreras.end()) return error(res, 404, "Carrera no existe");
             grafo = carrera->second.grafo;
         }
+        const auto disponibles = trayectoriasProfesionalizantes(grafo);
+        const auto seleccionadas = separarTrayectorias(req.get_param_value("trayectorias"));
+        if (disponibles.size() >= 2 && seleccionadas.size() != 2) {
+            return error(res, 400, "Debes seleccionar exactamente dos trayectorias profesionalizantes");
+        }
+        for (const std::string& seleccionada : seleccionadas) {
+            if (std::find(disponibles.begin(), disponibles.end(), seleccionada) == disponibles.end()) {
+                return error(res, 400, "La trayectoria profesionalizante seleccionada no existe");
+            }
+        }
         try {
             // 1. Generación de combinaciones válidas (método de Isa)
-            auto propuestas = Planificador::generar(grafo, cantidad, creditos);
+            auto propuestas = Planificador::generar(grafo, cantidad, creditos, seleccionadas, MAX_PROPUESTAS, esExigente);
 
             // 2. Ordenamiento según el criterio del estudiante (suave vs exigente)
             Planificador::ordenarPropuestas(propuestas, esExigente);
@@ -101,6 +141,7 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
             json << "{\"cantidad\":" << cantidad
                  << ",\"maxCreditos\":" << creditos
                  << ",\"esExigente\":" << (esExigente ? "true" : "false")
+                 << ",\"limitado\":" << (propuestas.size() >= MAX_PROPUESTAS ? "true" : "false")
                  << ",\"propuestas\":[";
             for (std::size_t i = 0; i < propuestas.size(); ++i) {
                 if (i) json << ',';

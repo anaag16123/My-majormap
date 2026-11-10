@@ -1,0 +1,222 @@
+codigo;nombre;semestre;creditos;dificultad;prerrequisitos;correquisitos;tipo
+BU0009;Inducción;1;0;1;;;Básico
+BU0011;Bienestar Universitario;1;1;1;;BU0600;Básico
+BU0600;Taller de Salud;1;0;1;;;Básico
+CI1001;Expresión Gráfica;1;3;2;;;Básico
+NM1001;Cálculo 1;1;3;4;;;Básico
+NM1008;Matemáticas para la Computación;1;3;4;;;Básico
+CI1002;Proyecto Escuela;1;3;3;;;Básico
+LE0001;Prueba de Lectura 1;2;0;1;;;Básico
+LE0002;Prueba de Escritura 1;2;0;1;;;Básico
+NC1001;Física 1;2;3;4;NM1001;;Básico
+NM1002;Cálculo 2;2;3;4;NM1001;;Básico
+NM1003;Álgebra Lineal;2;3;4;;;Básico
+SI1001;Teoría de la Computación;2;3;4;NM1008;;Básico
+SI1002;Lenguajes y Paradigmas de Computación;2;3;4;FH1037;;Básico
+NM2001;Cálculo 3;3;3;4;NM1002,NM1003;;Básico
+NM2002;Probabilidad y Estadística;3;3;4;NM1002;;Básico
+SI2001;Estructura de Datos y Algoritmos;3;3;4;SI1002;;Básico
+SI2002;Lenguajes Formales;3;3;4;SI1001;;Básico
+SI2003;Sistemas de Gestión de Datos;3;3;5;SI1002,LE0001,LE0002;;Básico
+TA2003;Talento I - Escuela de Ciencias Aplicadas e Ingeniería;3;0;2;NC1001;;Básico
+LE0003;Prueba de Lectura 2;4;0;1;LE0001;;Básico
+LE0004;Prueba de Escritura 2;4;0;1;LE0002;;Básico
+NC2001;Física 2;4;3;5;NC1001;NM1002;Básico
+SI2004;Sistemas Operativos;4;3;5;SI2001;;Básico
+SI2005;Ingeniería de Software;4;3;5;SI2003,TA2003;;Básico
+SI2007;Organización de Computadores;4;3;4;SI2001;;Básico
+SI2008;Sistemas de Información;4;3;4;;SI2005;Básico
+ST0251;Proyecto Integrador 1;4;3;4;;SI2005;Básico
+SI3001;Arquitectura de Software;5;3;5;SI2005;;Básico
+SI3002;Internet, Arquitectura y Protocolos;5;3;5;SI2004;;Básico
+SI3003;Inteligencia Artificial;5;3;4;SI2005;SI3005,SI3001;Básico
+SI3004;Proyecto 2;5;3;5;CI1002,SI2005,ST0251;;Básico
+SI3005;Análisis y Diseño de Algoritmos;5;3;4;SI2001;;Básico
+SI3006;Ciberseguridad;6;3;4;SI3002;;Básico
+TA4003;Talento II - Escuela de Ciencias Aplicadas e Ingeniería;7;0;2;TA2003,NC2001,SI3004;;Básico
+PT0131;Período de Práctica (Ingeniería de Sistemas Reforma);8;18;5;TA4003;;Básico
+FH1001;Ciudadanía y Democracia;2;3;2;;;NFI
+FH1006;La pregunta por la vida buena;2;3;2;;;NFI
+FH1007;Toma de decisiones;2;3;2;;;NFI
+FH1037;Pensamiento Computacional;1;3;3;;;NFI
+FH1003;Arte y Ciudadanía;3;3;2;;;NFI
+FH1004;Arte, Historia y Memoria;3;3;2;;;NFI
+FH1005;Arte, Política y Participación;3;3;2;;;NFI
+FH1008;Historia y Filosofía del Conocimiento Científico;3;3;2;;;NFI
+FH1009;Políticas del Conocimiento Científico;3;3;2;;;NFI
+FH1010;Ciencia y técnica en acción;3;3;2;;;NFI
+FH1011;Retórica y democracia;4;3;2;;;NFI
+FH1012;Argumentación visual y multimodal;4;3;2;;;NFI
+FH1013;Crítica de la opinión pública;4;3;2;;;NFI
+FH1014;Taller de escrituras líricas;4;3;2;;;NFI
+FH1015;Taller de Narrativas Urbanas;4;3;2;;;NFI
+FH1016;Taller de Dramaturgia Experimental;4;3;2;;;NFI
+FH1017;Lenguaje, ficción y realidad;4;3;2;;;NFI
+FH1018;Grandes textos de las Humanidades;4;3;2;;;NFI
+FH1019;Debates Humanísticos Contemporáneos;4;3;2;;;NFI
+FH1020;Identidades y literatura;4;3;2;;;NFI
+FH1021;Territorios y literatura;4;3;2;;;NFI
+FH1022;Emociones y Literatura;4;3;2;;;NFI
+FH1023;Estilos de vida sostenible;5;3;2;;;NFI
+FH1024;Diseño de soluciones imitando la naturaleza;5;3;2;;;NFI
+FH1025;Acción por el clima;5;3;2;;;NFI
+FH1026;Modelos de Democracia;5;3;2;;;NFI
+FH1027;Colombia: Territorio y Desarrollo;5;3;2;;;NFI
+FH1028;Coyunturas del Orden Global;5;3;2;;;NFI
+FH1029;Mundos de las Músicas Urbanas;5;3;2;;;NFI
+FH1030;Música y Política;5;3;2;;;NFI
+FH1031;Música, Lenguaje y Memoria;5;3;2;;;NFI
+FH1032;Imaginación y Creatividad;5;3;2;;;NFI
+FH1033;Comunicación Crítica;5;3;2;;;NFI
+FH1034;Economía, Política y Coyuntura Económica;5;3;2;;;NFI
+FH1035;Retos de la Ciudadanía Digital;5;3;2;;;NFI
+FH1036;Colombia: Estrategias de Guerra y Paz;5;3;2;;;NFI
+BL1001;Biología General;6;3;4;;;Trayectoria Flexible: Ciencias Naturales
+BL1003;Biología Celular;7;3;4;;;Trayectoria Flexible: Ciencias Naturales
+GL1001;Geociencias;9;3;4;;;Trayectoria Flexible: Ciencias Naturales
+GL2007;Cambio Climático;9;3;4;;;Trayectoria Flexible: Ciencias Naturales
+CI4001;Trayectoria Flexible 1;6;3;5;;;Trayectoria Flexible: Genérica
+CI4002;Trayectoria Flexible 2;7;3;5;;;Trayectoria Flexible: Genérica
+CI5001;Trayectoria Flexible 3;9;3;5;;;Trayectoria Flexible: Genérica
+CI5002;Trayectoria Flexible 4;9;3;5;;;Trayectoria Flexible: Genérica
+CO0133;Fundamentos de Contabilidad;6;3;4;;;Trayectoria Flexible: Análisis Financiero
+CO0135;Costos para Toma de Decisiones;7;3;4;CO0334;;Trayectoria Flexible: Formulación y Evaluación de Proyectos
+CO0328;Marco Tributario para las Organizaciones;7;3;4;DE0502;;Trayectoria Flexible: Derecho empresarial
+CO0334;Información Financiera para la Toma de Decisiones;6;3;4;;;Trayectoria Flexible: Formulación y Evaluación de Proyectos
+CS0025;Reportaje;7;3;4;CS0232;;Trayectoria Flexible: Periodismo
+CS0232;Periodismo Informativo;6;3;4;;;Trayectoria Flexible: Periodismo
+CS0233;Producción Radiofónica;7;3;4;;;Trayectoria Flexible: Comunicaciones
+CS0235;Periodismo Narrativo;9;3;4;CS0232;;Trayectoria Flexible: Periodismo
+CS0237;Periodismo de Opinión;9;2;3;;;Trayectoria Flexible: Periodismo
+CS0238;Lenguaje Audiovisual;9;3;4;;;Trayectoria Flexible: Comunicaciones
+CS0248;Visualización de Información;9;2;3;CS0232;;Trayectoria Flexible: Comunicaciones
+CS0268;Creación de Universos Narrativos;7;3;4;;;Trayectoria Flexible: Diseño Interactivo
+CS0272;Diseño de Sonido;9;3;4;;;Trayectoria Flexible: Diseño Interactivo
+CS0280;Narrativas en Realidad Virtual y Mixta;9;3;4;;;Trayectoria Flexible: Diseño Interactivo
+DE0502;Derecho Empresarial;6;3;4;;;Trayectoria Flexible: Derecho empresarial
+EC0418;Economía;6;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+EC0421;Economía del Comercio Internacional;7;3;4;EC0418;;Trayectoria Flexible: Finanzas Internacionales
+FI0138;Fundamentos de Finanzas;9;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+FI0141;Matemáticas Financieras;7;3;4;;;Trayectoria Flexible: Análisis Financiero
+FI0224;Finanzas Internacionales;9;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+FI0231;Análisis Financiero;9;3;4;;;Trayectoria Flexible: Análisis Financiero
+FS2002;Óptica;6;3;5;NC2001;;Trayectoria Flexible: Ingeniería Óptica
+FS2004;Electromagnetismo;7;3;5;NC2001,NM1002;;Trayectoria Flexible: Ingeniería Óptica
+FS2005;Física Moderna;6;3;5;NC2001,NM2001;;Trayectoria Flexible: Física Avanzada
+FS3002;Mecánica Cuántica;7;3;4;FS2005,NM2001;;Trayectoria Flexible: Física Avanzada
+FS3004;Física del Estado Sólido;7;3;4;FS2005;;Trayectoria Flexible: Materiales Funcionales
+FS3006;Ciencias de los Materiales;9;3;4;;FS3004;Trayectoria Flexible: Materiales Funcionales
+FS3007;Fundamentos de Señales Electromagnéticas;9;3;4;FS2004;;Trayectoria Flexible: Ingeniería Óptica
+FS3008;Dinámica y Estructura de Sistemas Físicos;9;3;4;FS3002;;Trayectoria Flexible: Física Avanzada
+FS4002;Fundamentos de Caracterización de Materiales;9;3;4;;FS3004;Trayectoria Flexible: Materiales Funcionales
+FS4003;Instrumentación de Dispositivos Electroópticos;9;3;5;FS2004,FS2002;;Trayectoria Flexible: Ingeniería Óptica
+FS4006;Computación Cuántica;9;3;5;FS2005;;Trayectoria Flexible: Física Avanzada
+HL0311;Introducción a los Géneros Literarios;6;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0323;Estudios del Texto Narrativo;7;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0324;Estudios de Literatura Hispánica;7;3;4;;;Trayectoria Flexible: Literatura
+HL0328;Estudios del Texto Dramático;9;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0337;Estudios del Texto Ensayístico;9;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0340;Estudios de Literatura Latinoamericana;9;3;4;;;Trayectoria Flexible: Literatura
+HL0342;Estudios de Literatura Colombiana;9;3;4;;;Trayectoria Flexible: Literatura
+MF2001;Microeconomía General;6;3;4;;;Trayectoria Flexible: Economía
+MF2003;Microeconomía 2: Teoría de Juegos, Estrategia y Economía de la Información;7;3;4;;;Trayectoria Flexible: Economía
+MS1001;Introducción a la Economía Colombiana;9;3;4;;;Trayectoria Flexible: Economía
+MS1002;Macroeconomía General;9;3;4;MS1001;;Trayectoria Flexible: Economía
+NI0100;Mercadeo Internacional;6;3;3;;;Trayectoria Flexible: Negocios Internacionales
+NI0104;Negocios Internacionales;7;3;4;;;Trayectoria Flexible: Negocios Internacionales
+NI0298;Turismo: Ocio y Negocio;7;3;4;;;Trayectoria Flexible: Talento Internacional
+NI0299;Gestión Intercultural;9;3;4;;;Trayectoria Flexible: Negocios Internacionales
+NI0302;Desarrollo del Talento Internacional;9;3;4;;;Trayectoria Flexible: Talento Internacional
+NI0329;Estrategia Internacional;9;3;4;;;Trayectoria Flexible: Negocios Internacionales
+OG0124;Organizaciones;6;3;4;;;Trayectoria Flexible: Estrategia
+OG0125;Estrategia;7;3;4;;;Trayectoria Flexible: Estrategia
+OG0261;Evaluación Financiera de Proyectos;9;3;3;;;Trayectoria Flexible: Evaluación Financiera de Proyectos
+OG0264;Gestión de Proyectos;9;3;4;;;Trayectoria Flexible: Gerencia de Proyectos
+OG0358;Fundamentos de Administración;9;3;4;;;Trayectoria Flexible: Estrategia
+OG0363;Gestión Humana;9;3;4;;;Trayectoria Flexible: Estrategia
+OG0368;Formulación y Evaluación de Proyectos;9;3;3;;;Trayectoria Flexible: Formulación y Evaluación de Proyectos
+OG0374;Gestión del Conocimiento e Innovación;9;3;4;;;Trayectoria Flexible: Gerencia del Conocimiento
+OG0375;Gerencia Estratégica;9;3;5;;;Trayectoria Flexible: Gerencia Estratégica
+OG0376;Dirección y liderazgo;9;3;4;;;Trayectoria Flexible: Dirección y Liderazgo
+PD1001;Historia Económica General;7;3;4;;;Trayectoria Flexible: Historia Económica
+PD2001;Historia del Pensamiento Económico;9;3;4;PD1001;;Trayectoria Flexible: Historia Económica
+PD4002;Historia Económica de Colombia;9;3;4;MS1001;;Trayectoria Flexible: Historia Económica
+PS0300;Historia de la Psicología;6;3;4;;;Trayectoria Flexible: Psicología
+PS0307;Teoría y Autores en Psicología Humanista;7;3;4;;;Trayectoria Flexible: Psicología
+PS0311;Teoría y Autores en Psicología Cognitiva;9;3;4;;;Trayectoria Flexible: Psicología
+PS0321;Teoría y Autores Contemporáneos en Psicología Dinámica;9;3;4;;;Trayectoria Flexible: Psicología
+CI3003;Fundamentos de Blockchain y Sistemas DLT;6;3;5;SI3005;;Trayectoria Profesionalizante: Blockchain
+SI3007;Sistemas Distribuidos;6;3;5;SI3002;;Trayectoria Profesionalizante: Infraestructura TI
+SI3008;Sistemas Intensivos de Datos;6;3;5;SI2004;;Trayectoria Profesionalizante: Ingeniería de Datos
+SI3009;Bases de Datos Avanzadas;6;3;5;SI2003;;Trayectoria Profesionalizante: Ingeniería de Datos
+SI3010;Gestión y Gobernanza de Datos;7;3;5;SI2003;;Trayectoria Profesionalizante: Ingeniería de Datos
+SI3012;Ingeniería de Software para Aplicaciones Web;6;3;5;SI3001;;Trayectoria Profesionalizante: Desarrollo de Software
+SI3013;Pruebas de Software;6;3;5;SI3001;;Trayectoria Profesionalizante: Desarrollo de Software
+SI3014;Redes Neuronales y Aprendizaje Profundo;6;3;5;SI3003;;Trayectoria Profesionalizante: Inteligencia Artificial
+SI3015;Fundamentos de Aprendizaje Automático;6;3;5;SI3003;;Trayectoria Profesionalizante: Inteligencia Artificial
+SI3016;Computación en Nube;6;3;5;SI3002;;Trayectoria Profesionalizante: Infraestructura TI
+SI3017;Automatización de Procesos de Negocios;6;3;5;SI2008;;Trayectoria Profesionalizante: Sistemas de Información
+SI3018;Gestión de TI;6;3;5;SI2008;;Trayectoria Profesionalizante: Sistemas de Información
+CI3004;Blockchain 2.0: Contratos inteligentes;6;3;5;SI3005;CI3003;Trayectoria Profesionalizante: Blockchain
+CI4004;Criptoeconomía y Gobierno de Sistemas DLT;7;3;5;CI3004,CI3003;;Trayectoria Profesionalizante: Blockchain
+CI5003;Proyecto Blockchain;7;3;5;CI4004;;Trayectoria Profesionalizante: Blockchain
+SI4001;Aplicaciones y Sistemas Escalables;7;3;5;SI3007;;Trayectoria Profesionalizante: Infraestructura TI
+SI4002;Proyecto Ingeniería de Datos;7;3;5;;SI3009,SI3010,SI3008;Trayectoria Profesionalizante: Ingeniería de Datos
+SI4003;Proyecto en Infraestructura TI;7;3;5;;SI4001;Trayectoria Profesionalizante: Infraestructura TI
+SI4004;Interacción Humano Computador;7;3;5;SI3012,SI3013;;Trayectoria Profesionalizante: Desarrollo de Software
+SI4005;Proyecto en Desarrollo de Software;7;3;5;;SI4004;Trayectoria Profesionalizante: Desarrollo de Software
+SI4006;Tópicos Especiales y Aplicaciones en Inteligencia Artificial;7;3;5;SI3014;;Trayectoria Profesionalizante: Inteligencia Artificial
+SI4007;Inteligencia de Negocios;7;3;5;SI3017,SI3018;;Trayectoria Profesionalizante: Sistemas de Información
+SI4008;Proyecto Sistemas de Información;7;3;5;;SI4007;Trayectoria Profesionalizante: Sistemas de Información
+SI5001;Proyecto en Inteligencia Artificial;7;3;5;SI4006;;Trayectoria Profesionalizante: Inteligencia Artificial
+ST1627;Pensamiento Arquitectónico para Soluciones de Ti;9;2;3;;;Línea de Énfasis: Infraestructura TI
+ST1628;Redes para Sistemas de Alto Desempeño;9;2;3;;;Línea de Énfasis: Infraestructura TI
+ST1629;Computación en Nube;9;2;3;;;Línea de Énfasis: Infraestructura TI
+ST1630;Sistemas Intensivos en Datos;9;2;3;;;Línea de Énfasis: Infraestructura TI
+ST1631;Aprendizaje de Máquina Aplicado;9;2;2;PT0131;;Línea de Énfasis (Electiva)
+ST1632;Estrategias de Innovación en Ecosistemas Digitales;9;2;2;PT0131;;Línea de Énfasis (Electiva)
+ST1633;Diseño de la Experiencia de Usuario;9;2;2;PT0131;;Línea de Énfasis (Electiva)
+ST1623;Procesos Modernos de Desarrollo de Software;9;2;3;;;Línea de Énfasis: Desarrollo de Software
+ST1624;Integración y Entrega Continua de Software;9;2;3;;;Línea de Énfasis: Desarrollo de Software
+ST1625;Arquitecturas Avanzadas de Software;9;2;3;;;Línea de Énfasis: Desarrollo de Software
+ST1626;Desarrollo de Sistemas Seguros;9;2;3;;;Línea de Énfasis: Desarrollo de Software
+ID0663;Diseño Conceptual Mecatrónico;9;3;3;;;Línea de Énfasis: Diseño Integrado de Sistemas Técnicos
+ID0667;Lenguajes Técnicos de Programación;9;3;4;;;Línea de Énfasis: Diseño Integrado de Sistemas Técnicos
+ID0673;Actuadores y Sensores;9;3;3;;;Línea de Énfasis: Diseño Integrado de Sistemas Técnicos
+ID0685;Equipos para Interfaces entre Procesos;9;3;3;;;Línea de Énfasis: Diseño Integrado de Sistemas Técnicos
+OG0260;Preparación de Proyectos;9;3;4;;;Línea de Énfasis: Gerencia de Proyectos
+OG0262;Evaluación Ambiental de Proyectos;9;3;4;PT0131;;Línea de Énfasis: Gerencia de Proyectos
+OG0263;Análisis de Riesgos;9;3;4;PT0131;;Línea de Énfasis: Gerencia de Proyectos
+NM6001;Matemáticas Aplicada;9;2;3;;;Línea de Énfasis: Ciencias de los Datos
+NM6002;Estadística Aplicada;9;2;3;;;Línea de Énfasis: Ciencias de los Datos
+SI6001;Fundamentos en Ciencias de Datos;9;2;3;;;Línea de Énfasis: Ciencias de los Datos
+SI6002;Aprendizaje Automático;9;2;3;;NM6001,NM6002;Línea de Énfasis: Ciencias de los Datos
+SI6003;Almacenamiento y Procesamiento de Grandes Datos;9;2;3;;;Línea de Énfasis: Ciencias de los Datos
+SI6004;Visualización de Datos;9;2;3;;;Línea de Énfasis: Ciencias de los Datos
+ST1619;Arquitectura Empresarial;9;2;3;;;Línea de Énfasis: Sistemas de Información
+ST1620;Gestión Estratégica de Ti;9;2;3;;;Línea de Énfasis: Sistemas de Información
+ST1621;Inteligencia Analítica Empresarial;9;2;3;;;Línea de Énfasis: Sistemas de Información
+ST1622;Innovación de Procesos Empresariales;9;2;3;;;Línea de Énfasis: Sistemas de Información
+CM0050;Optimización 2;5;3;4;CM0426,NM2001;;Electiva en Matemáticas
+CM0085;Modelación y Simulación V;5;3;4;NM2002,NM2001;;Electiva en Matemáticas
+CM0087;Análisis I;5;3;4;NM2001;;Electiva en Matemáticas
+CM0235;Ecuaciones Diferenciales;5;3;4;NM2001;;Electiva en Matemáticas
+CM0245;Métodos Cuantitativos;5;3;4;NM2001;;Electiva en Matemáticas
+CM0422;Ecuaciones en Derivadas Parciales;5;3;4;CM0235;;Electiva en Matemáticas
+CM0423;Estadística 2 (Ing. Matemática);5;3;4;NM1003,NM2002,NM2001;;Electiva en Matemáticas
+CM0426;Optimización 1;5;3;4;NM1003,NM2001;;Electiva en Matemáticas
+CM0433;Procesos Estocásticos 1;5;3;4;NM2001,NM2002;;Electiva en Matemáticas
+MF2002;Econometría 1;5;3;4;NM2001,NM2002;;Electiva en Matemáticas
+MF3002;Econometría 2;5;3;4;MF2002;;Electiva en Matemáticas
+MT5001;Elementos de Teoría de Conjuntos;4;3;4;NM2001;;Electiva en Matemáticas
+MT5002;Análisis Numérico;5;3;4;MT5011;;Electiva en Matemáticas
+MT5003;Modelos y Métodos de Optimización;4;3;4;NM2001;;Electiva en Matemáticas
+MT5004;Teoría de Probabilidad;4;3;4;NM2001,NM2002;;Electiva en Matemáticas
+MT5005;Inferencia Estadística;4;3;4;NM2001,NM2002;;Electiva en Matemáticas
+MT5006;Inferencia Bayesiana;4;3;4;MT5005;;Electiva en Matemáticas
+MT5007;Algebra Lineal (MMA);5;3;4;NM1003,NM2001;;Electiva en Matemáticas
+MT5008;Lógica;5;3;4;NM2001,SI2002;;Electiva en Matemáticas
+MT5009;Teoría de Tipos;5;3;4;NM2001,SI2002;;Electiva en Matemáticas
+MT5010;Métodos Formales para el Desarrollo de Software;5;3;4;NM2001,SI2002;;Electiva en Matemáticas
+MT5011;Cálculo Avanzado;4;3;4;NM2001;;Electiva en Matemáticas
+MT5012;Lenguajes Declarativos;5;3;4;NM2001,SI2002;;Electiva en Matemáticas

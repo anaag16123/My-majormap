@@ -23,6 +23,11 @@
             <option value="exigente">Modo Exigente (mayor dificultad y reto académico)</option>
         </select>
 
+        <label for="professional-trajectories">Trayectorias profesionalizantes (elige exactamente 2)</label>
+        <p id="trajectory-help" class="field-help">Solo aparecen las trayectorias registradas para esta carrera.</p>
+        <select id="professional-trajectories" name="trayectorias" multiple required size="5" aria-describedby="trajectory-help"></select>
+        <p id="flexible-trajectories" class="field-help"></p>
+
         <button id="generate-button" class="button button-primary" type="submit">Generar propuestas ↗</button>
         <p class="field-help text-center">Después de generar, las propuestas se recalculan solas si cambias tus aprobadas, la cantidad, los créditos o la preferencia.</p>
     </form>
