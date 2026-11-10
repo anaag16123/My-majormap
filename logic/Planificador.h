@@ -19,7 +19,11 @@ public:
         const Grafo& grafo,
         int cantidad,
         int maxCreditos,
-        const std::vector<std::string>& trayectoriasProfesionalizantes = {});
+        const std::vector<std::string>& trayectoriasProfesionalizantes = {},
+        // 0 = sin limite. Si es > 0, la busqueda se detiene al encontrar esa cantidad de
+        // propuestas y prueba primero las materias mas faciles (suave) o mas dificiles (exigente).
+        std::size_t maxResultados = 0,
+        bool exigente = false);
     // Ordena las propuestas según la preferencia de exigencia:
     // - Modo suave (esExigente = false): menor dificultad/carga académica (menor a mayor).
     // - Modo exigente (esExigente = true): mayor dificultad total (mayor a menor).

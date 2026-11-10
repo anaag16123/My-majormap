@@ -5,6 +5,9 @@
 #include <algorithm>
 
 namespace {
+
+// Tope de propuestas: con pensums reales hay millones de combinaciones.
+const std::size_t MAX_PROPUESTAS = 100;
 std::string escapar(const std::string& texto) {
     const char* hex = "0123456789abcdef";
     std::string resultado;
@@ -128,7 +131,7 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
         }
         try {
             // 1. Generación de combinaciones válidas (método de Isa)
-            auto propuestas = Planificador::generar(grafo, cantidad, creditos, seleccionadas);
+            auto propuestas = Planificador::generar(grafo, cantidad, creditos, seleccionadas, MAX_PROPUESTAS, esExigente);
 
             // 2. Ordenamiento según el criterio del estudiante (suave vs exigente)
             Planificador::ordenarPropuestas(propuestas, esExigente);
@@ -138,6 +141,7 @@ void registrarRutasPropuestas(httplib::Server& servidor, Contexto& ctx) {
             json << "{\"cantidad\":" << cantidad
                  << ",\"maxCreditos\":" << creditos
                  << ",\"esExigente\":" << (esExigente ? "true" : "false")
+                 << ",\"limitado\":" << (propuestas.size() >= MAX_PROPUESTAS ? "true" : "false")
                  << ",\"propuestas\":[";
             for (std::size_t i = 0; i < propuestas.size(); ++i) {
                 if (i) json << ',';

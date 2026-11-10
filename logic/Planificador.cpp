@@ -41,17 +41,28 @@ std::vector<Propuesta> Planificador::generar(
     const Grafo& grafo,
     int cantidad,
     int maxCreditos,
-    const std::vector<std::string>& trayectoriasProfesionalizantes) {
+    const std::vector<std::string>& trayectoriasProfesionalizantes,
+    std::size_t maxResultados,
+    bool exigente) {
     if (cantidad <= 0 || maxCreditos <= 0) {
         throw std::invalid_argument("Cantidad y creditos deben ser enteros positivos");
     }
-    const auto& candidatas = grafo.getHabilitadas();
+    std::vector<Materia> candidatas = grafo.getHabilitadas();
+    if (maxResultados > 0) {
+        // Con tope, el orden de las candidatas decide cuales propuestas se encuentran primero.
+        std::stable_sort(candidatas.begin(), candidatas.end(),
+            [exigente](const Materia& a, const Materia& b) {
+                return exigente ? a.getDificultad() > b.getDificultad()
+                                : a.getDificultad() < b.getDificultad();
+            });
+    }
     for (const Materia& m : grafo.getCatalogo()) {
         if (m.getCreditos() < 0) throw std::invalid_argument("Una materia tiene creditos negativos");
     }
     std::vector<Propuesta> resultado;
     std::vector<Materia> parcial;
     std::function<void(std::size_t, int)> buscar = [&](std::size_t inicio, int creditos) {
+        if (maxResultados > 0 && resultado.size() >= maxResultados) return; // Tope alcanzado.
         if (static_cast<int>(parcial.size()) == cantidad) {
             // No se comprueban antes: un correquisito puede agregarse mas adelante.
             for (const Materia& m : parcial) {
