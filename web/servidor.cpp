@@ -31,18 +31,37 @@ static bool agregarCarrera(Contexto& ctx, const std::string& id,
 int main() {
     Contexto ctx;
 
-    // Por ahora las tres carreras usan el pensum de prueba.
-    // Cuando Lau suba los reales, solo se cambia el nombre del CSV.
-    bool ok = agregarCarrera(ctx, "sistemas",   "Ingenieria de Sistemas", "data/prueba.csv")
-           && agregarCarrera(ctx, "matematica", "Matematica",             "data/prueba.csv")
-           && agregarCarrera(ctx, "fisica",     "Fisica",                 "data/prueba.csv");
+    // Carga de los pensums reales de EAFIT para las tres carreras
+    bool ok = agregarCarrera(ctx, "sistemas",   "Ingeniería de Sistemas", "data/ingenieria_sistemas.csv")
+           && agregarCarrera(ctx, "matematica", "Ingeniería Matemática", "data/ingenieria_matematica.csv")
+           && agregarCarrera(ctx, "fisica",     "Ingeniería Física",     "data/ingenieria_fisica.csv");
     if (!ok) return 1;
+
+    // Carga de trayectorias y líneas de énfasis adicionales desde trayectoria_enfasis.csv
+    std::vector<RegistroTrayectoria> todasTrayectorias;
+    std::string errTrayectorias;
+    if (CargadorPensum::cargarTrayectorias("data/trayectoria_enfasis.csv", todasTrayectorias, errTrayectorias)) {
+        for (const auto& reg : todasTrayectorias) {
+            for (auto& par : ctx.carreras) {
+                if (par.second.nombre == reg.programa ||
+                    (par.second.id == "sistemas" && reg.programa.find("Sistemas") != std::string::npos) ||
+                    (par.second.id == "fisica" && reg.programa.find("Física") != std::string::npos) ||
+                    (par.second.id == "fisica" && reg.programa.find("Fisica") != std::string::npos)) {
+                    par.second.trayectorias.push_back(reg);
+                    break;
+                }
+            }
+        }
+    } else {
+        std::cerr << "Aviso: no se pudo cargar trayectoria_enfasis.csv: " << errTrayectorias << "\n";
+    }
 
     httplib::Server servidor;
     if (!servidor.set_mount_point("/", "web/public")) {
         std::cerr << "No encuentro web/public. Ejecuta desde la raiz del proyecto.\n";
         return 1;
     }
+    servidor.set_mount_point("/data", "data");
 
     // Cada integrante crea su propio par RutasXxx.h/.cpp con una funcion
     // registrarRutasXxx(httplib::Server&, Contexto&) (ver RutasPensum.cpp de modelo)

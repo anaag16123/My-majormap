@@ -1,0 +1,194 @@
+codigo;nombre;semestre;creditos;dificultad;prerrequisitos;correquisitos;tipo
+BU0009;Inducción;1;0;1;;;Básico
+BU0011;Bienestar Universitario;1;1;1;;BU0600;Básico
+BU0600;Taller de Salud;1;0;1;;;Básico
+CI1001;Expresión Gráfica;1;3;2;;;Básico
+CI1002;Proyecto Escuela;1;3;3;;;Básico
+NC1001;Física 1;1;3;4;;;Básico
+NM1001;Cálculo 1;1;3;4;;;Básico
+QC1001;Química General;1;3;4;;;Básico
+FS1001;Proyecto Experimental 1;2;3;4;;;Básico
+FS1002;Fundamentos de Electrónica;2;3;4;;;Básico
+LE0001;Prueba de Lectura 1;2;0;1;;;Básico
+LE0002;Prueba de Escritura 1;2;0;1;;;Básico
+NC2001;Física 2;2;3;4;NC1001;;Básico
+NM1002;Cálculo 2;2;3;4;NM1001;;Básico
+NM1003;Álgebra Lineal;2;3;4;;;Básico
+FS2001;Proyecto Experimental 2;3;3;4;LE0001,LE0002,FS1001;;Básico
+FS2002;Óptica;3;3;4;NC2001;;Básico
+NM2001;Cálculo 3;3;3;4;NM1002,NM1003;;Básico
+NM2002;Probabilidad y Estadística;3;3;4;NM1002;;Básico
+NM3001;Ecuaciones Diferenciales;3;3;4;NM1002;;Básico
+TA2003;Talento I - Escuela de Ciencias Aplicadas e Ingeniería;3;0;2;NM1003;;Básico
+CI2004;Termofluídos 1;4;3;4;TA2003;;Básico
+FS2003;Proyecto Instrumental 1;4;3;4;FS2001;;Básico
+FS2004;Electromagnetismo;4;3;4;NC2001,NM1002;;Básico
+FS2005;Física Moderna;4;3;4;NC2001,NM2001;;Básico
+FS2006;Física Matemática;4;3;4;NM2001;;Básico
+LE0003;Prueba de Lectura 2;4;0;1;LE0001;;Básico
+LE0004;Prueba de Escritura 2;4;0;1;LE0002;;Básico
+CI3001;Termofluidos 2;5;3;4;;;Básico
+FS3001;Proyecto Instrumental 2;5;3;4;FS2003;;Básico
+FS3002;Mecánica Cuántica;5;3;4;FS2005;;Básico
+FS3003;Métodos Númericos para EDPs;5;3;4;FH1002;MT3003;Básico
+MT3003;Ecuaciones en Derivadas Parciales;5;3;4;NM3001;;Básico
+FS3004;Física del Estado Sólido;6;3;4;FS2005;;Básico
+FS3005;Proyecto Instrumental 3;6;3;4;FS3001;;Básico
+TA4003;Talento II - Escuela de Ciencias Aplicadas e Ingeniería;7;0;2;TA2003,FS3005;;Básico
+PT0306;Período de Práctica (Ingeniería Física Reforma);8;18;5;TA4003;;Básico
+FH1001;Ciudadanía y Democracia;2;3;2;;;NFI
+FH1002;Pensamiento Computacional;1;3;3;;;NFI
+FH1006;La pregunta por la vida buena;3;3;2;;;NFI
+FH1007;Toma de decisiones;3;3;2;;;NFI
+FH1003;Arte y Ciudadanía;3;3;2;;;NFI
+FH1004;Arte, Historia y Memoria;3;3;2;;;NFI
+FH1005;Arte, Política y Participación;3;3;2;;;NFI
+FH1008;Historia y Filosofía del Conocimiento Científico;3;3;2;;;NFI
+FH1009;Políticas del Conocimiento Científico;3;3;2;;;NFI
+FH1010;Ciencia y técnica en acción;3;3;2;;;NFI
+FH1011;Retórica y democracia;4;3;2;;;NFI
+FH1012;Argumentación visual y multimodal;4;3;2;;;NFI
+FH1013;Crítica de la opinión pública;4;3;2;;;NFI
+FH1014;Taller de escrituras líricas;4;3;2;;;NFI
+FH1015;Taller de Narrativas Urbanas;4;3;2;;;NFI
+FH1016;Taller de Dramaturgia Experimental;4;3;2;;;NFI
+FH1017;Lenguaje, ficción y realidad;4;3;2;;;NFI
+FH1018;Grandes textos de las Humanidades;4;3;2;;;NFI
+FH1019;Debates Humanísticos Contemporáneos;4;3;2;;;NFI
+FH1020;Identidades y literatura;4;3;2;;;NFI
+FH1021;Territorios y literatura;4;3;2;;;NFI
+FH1022;Emociones y Literatura;4;3;2;;;NFI
+FH1023;Estilos de vida sostenible;5;3;2;;;NFI
+FH1024;Diseño de soluciones imitando la naturaleza;5;3;2;;;NFI
+FH1025;Acción por el clima;5;3;2;;;NFI
+FH1026;Modelos de Democracia;5;3;2;;;NFI
+FH1027;Colombia: Territorio y Desarrollo;5;3;2;;;NFI
+FH1028;Coyunturas del Orden Global;5;3;2;;;NFI
+FH1029;Mundos de las Músicas Urbanas;5;3;2;;;NFI
+FH1030;Música y Política;5;3;2;;;NFI
+FH1031;Música, Lenguaje y Memoria;5;3;2;;;NFI
+FH1032;Imaginación y Creatividad;5;3;2;;;NFI
+FH1033;Comunicación Crítica;5;3;2;;;NFI
+FH1034;Economía, Política y Coyuntura Económica;5;3;2;;;NFI
+FH1035;Retos de la Ciudadanía Digital;5;3;2;;;NFI
+FH1036;Colombia: Estrategias de Guerra y Paz;5;3;2;;;NFI
+FS3006;Ciencias de los Materiales;6;3;4;;FS3004;Trayectoria Profesionalizante: Materiales Funcionales
+FS4001;Materiales Avanzados;7;3;5;FS3006;;Trayectoria Profesionalizante: Materiales Funcionales
+FS4002;Fundamentos de Caracterización de Materiales;7;3;4;;FS3004;Trayectoria Profesionalizante: Materiales Funcionales
+FS4007;Proyecto de Materiales Funcionales;7;3;5;FS3006;;Trayectoria Profesionalizante: Materiales Funcionales
+FS3007;Fundamentos de Señales Electromagnéticas;6;3;4;FS2004;;Trayectoria Profesionalizante: Ingeniería Óptica
+FS4003;Instrumentación de Dispositivos Electroópticos;7;3;5;FS2004,FS2002;;Trayectoria Profesionalizante: Ingeniería Óptica
+FS4004;Procesamiento de Señales;7;3;3;FS3007;;Trayectoria Profesionalizante: Ingeniería Óptica
+FS4008;Proyecto de Ingeniería Óptica;7;3;5;FS3007;;Trayectoria Profesionalizante: Ingeniería Óptica
+FS3008;Dinámica y Estructura de Sistemas Físicos;6;3;4;FS3002;;Trayectoria Profesionalizante: Física Avanzada
+FS4005;Física Estadística e Introducción a la Teoría de la Información;7;3;5;FS3008;;Trayectoria Profesionalizante: Física Avanzada
+FS4006;Computación Cuántica;7;3;5;FS2005;;Trayectoria Profesionalizante: Física Avanzada
+FS4009;Proyecto de Física Avanzada;7;3;5;FS3008;;Trayectoria Profesionalizante: Física Avanzada
+MC4011;Dinámica y Simulación Robótica;6;3;4;;;Trayectoria Flexible: Robótica
+MC4012;Sensores y Actuadores en Robótica;6;3;4;;;Trayectoria Flexible: Robótica
+MC5003;Inteligencia Artificiales en Robótica;7;3;4;;;Trayectoria Flexible: Robótica
+MC5004;Visión Artificial;9;3;4;;;Trayectoria Flexible: Robótica
+MC4013;Dinámica de Vehículos;6;3;4;;;Trayectoria Flexible: Vehículos
+MC4014;Fundamentos de Combustión y Emisiones;6;3;4;;;Trayectoria Flexible: Vehículos
+MC5005;Motores de Combustión Interna;7;3;4;;;Trayectoria Flexible: Vehículos
+MC5006;Vehículos Híbridos y Eléctricos;9;3;4;;;Trayectoria Flexible: Vehículos
+MF2001;Microeconomía General;6;3;4;;;Trayectoria Flexible: Economía
+MF2003;Microeconomía 2: Teoría de Juegos, Estrategia y Economía de la Información;6;3;4;;;Trayectoria Flexible: Economía
+MS1001;Introducción a la Economía Colombiana;7;3;4;;;Trayectoria Flexible: Economía
+MS1002;Macroeconomía General;9;3;4;;;Trayectoria Flexible: Economía
+PD1001;Historia Económica General;6;3;4;;;Trayectoria Flexible: Historia Económica
+PD2001;Historia del Pensamiento Económico;7;3;4;;;Trayectoria Flexible: Historia Económica
+PD4002;Historia Económica de Colombia;9;3;4;;;Trayectoria Flexible: Historia Económica
+CO0133;Fundamentos de Contabilidad;6;3;4;;;Trayectoria Flexible: Análisis Financiero
+FI0141;Matemáticas Financieras;6;3;4;;;Trayectoria Flexible: Análisis Financiero
+FI0231;Análisis Financiero;7;3;4;;;Trayectoria Flexible: Análisis Financiero
+OG0261;Evaluación Financiera de Proyectos;9;3;3;;;Trayectoria Flexible: Evaluación Financiera de Proyectos
+OG0124;Organizaciones;6;3;4;;;Trayectoria Flexible: Estrategia
+OG0125;Estrategia;6;3;4;;;Trayectoria Flexible: Estrategia
+OG0358;Fundamentos de Administración;7;3;4;;;Trayectoria Flexible: Estrategia
+OG0363;Gestión Humana;9;3;4;;;Trayectoria Flexible: Estrategia
+OG0376;Dirección y liderazgo;9;3;4;;;Trayectoria Flexible: Dirección y Liderazgo
+OG0375;Gerencia Estratégica;9;3;5;;;Trayectoria Flexible: Gerencia Estratégica
+OG0374;Gestión del Conocimiento e Innovación;9;3;4;;;Trayectoria Flexible: Gerencia del Conocimiento
+OG0264;Gestión de Proyectos;7;3;4;;;Trayectoria Flexible: Gerencia de Proyectos
+OG0368;Formulación y Evaluación de Proyectos;9;3;3;;;Trayectoria Flexible: Gerencia de Proyectos
+DE0502;Derecho Empresarial;6;3;4;;;Trayectoria Flexible: Derecho empresarial
+CO0328;Marco Tributario para las Organizaciones;6;3;4;;;Trayectoria Flexible: Derecho empresarial
+CO0135;Costos para Toma de Decisiones;6;3;4;;;Trayectoria Flexible: Formulación y Evaluación de Proyectos
+CO0334;Información Financiera para la Toma de Decisiones;6;3;4;;;Trayectoria Flexible: Formulación y Evaluación de Proyectos
+NI0100;Mercadeo Internacional;6;3;3;;;Trayectoria Flexible: Negocios Internacionales
+NI0104;Negocios Internacionales;6;3;4;;;Trayectoria Flexible: Negocios Internacionales
+NI0299;Gestión Intercultural;7;3;4;;;Trayectoria Flexible: Negocios Internacionales
+NI0329;Estrategia Internacional;9;3;4;;;Trayectoria Flexible: Negocios Internacionales
+NI0298;Turismo: Ocio y Negocio;6;3;4;;;Trayectoria Flexible: Talento Internacional
+NI0302;Desarrollo del Talento Internacional;9;3;4;;;Trayectoria Flexible: Talento Internacional
+EC0418;Economía;6;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+EC0421;Economía del Comercio Internacional;6;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+FI0138;Fundamentos de Finanzas;7;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+FI0224;Finanzas Internacionales;9;3;4;;;Trayectoria Flexible: Finanzas Internacionales
+HL0311;Introducción a los Géneros Literarios;6;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0323;Estudios del Texto Narrativo;6;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0328;Estudios del Texto Dramático;7;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0337;Estudios del Texto Ensayístico;9;3;4;;;Trayectoria Flexible: Géneros Literarios
+HL0324;Estudios de Literatura Hispánica;6;3;4;;;Trayectoria Flexible: Literatura
+HL0340;Estudios de Literatura Latinoamericana;7;3;4;;;Trayectoria Flexible: Literatura
+HL0342;Estudios de Literatura Colombiana;9;3;4;;;Trayectoria Flexible: Literatura
+CS0232;Periodismo Informativo;6;3;4;;;Trayectoria Flexible: Periodismo
+CS0025;Reportaje;6;3;4;;;Trayectoria Flexible: Periodismo
+CS0235;Periodismo Narrativo;7;3;4;;;Trayectoria Flexible: Periodismo
+CS0237;Periodismo de Opinión;9;3;3;;;Trayectoria Flexible: Periodismo
+CS0233;Producción Radiofónica;6;3;4;;;Trayectoria Flexible: Comunicaciones
+CS0238;Lenguaje Audiovisual;7;3;4;;;Trayectoria Flexible: Comunicaciones
+CS0248;Visualización de Información;9;3;3;;;Trayectoria Flexible: Comunicaciones
+CS0268;Creación de Universos Narrativos;6;3;4;;;Trayectoria Flexible: Diseño Interactivo
+CS0272;Diseño de Sonido;7;3;4;;;Trayectoria Flexible: Diseño Interactivo
+CS0280;Narrativas en Realidad Virtual y Mixta;9;3;4;;;Trayectoria Flexible: Diseño Interactivo
+PS0300;Historia de la Psicología;6;3;4;;;Trayectoria Flexible: Psicología
+PS0307;Teoría y Autores en Psicología Humanista;6;3;4;;;Trayectoria Flexible: Psicología
+PS0311;Teoría y Autores en Psicología Cognitiva;7;3;4;;;Trayectoria Flexible: Psicología
+PS0321;Teoría y Autores Contemporáneos en Psicología Dinámica;9;3;4;;;Trayectoria Flexible: Psicología
+CV1001;Geomática, Topografía y SIG;6;3;5;;;Trayectoria Flexible: Transporte
+CV2004;Ingeniería del Transporte;6;3;4;;;Trayectoria Flexible: Transporte
+CV3003;Infraestructura del Transporte;7;3;4;;;Trayectoria Flexible: Transporte
+CV3005;TICs en la Construcción;9;3;5;;;Trayectoria Flexible: Transporte
+CI3003;Fundamentos de Blockchain y Sistemas DLT;6;3;5;;;Trayectoria Flexible: Blockchain
+CI3004;Blockchain 2.0: Contratos inteligentes;6;3;5;;;Trayectoria Flexible: Blockchain
+CI4004;Criptoeconomía y Gobierno de Sistemas DLT;7;3;5;;;Trayectoria Flexible: Blockchain
+CI5003;Proyecto Blockchain;9;3;5;;;Trayectoria Flexible: Blockchain
+PN3003;Fábricas Inteligentes;6;3;5;;;Trayectoria Flexible: Fábricas Inteligentes
+PN3008;Inteligencia Artificial para Manufactura;6;3;5;;;Trayectoria Flexible: Fábricas Inteligentes
+PN3009;Manufactura Adaptativa;7;3;5;;;Trayectoria Flexible: Fábricas Inteligentes
+PN4003;Gemelos Digitales;9;3;5;;;Trayectoria Flexible: Fábricas Inteligentes
+PN3001;Excelencia Operacional;6;3;5;;;Trayectoria Flexible: Excelencia Operacional
+PN3006;Análisis y Mejora de Procesos;6;3;5;;;Trayectoria Flexible: Excelencia Operacional
+PN3007;Medición y Control de Procesos;7;3;5;;;Trayectoria Flexible: Excelencia Operacional
+PN4001;Diseño Esbelto;9;3;5;;;Trayectoria Flexible: Excelencia Operacional
+PN3004;Gestión de Tecnología e Innovación;6;3;4;;;Trayectoria Flexible: Transformación Digital
+PN4006;Innovación Tecnológica;6;3;5;;;Trayectoria Flexible: Transformación Digital
+PN4007;Inteligencia Competitiva para la Innovación;7;3;5;;;Trayectoria Flexible: Transformación Digital
+PN4008;Transformación Digital;9;3;5;;;Trayectoria Flexible: Transformación Digital
+PN2002;IoT Industrial;6;3;5;;;Trayectoria Flexible: Innovación Ciber Física
+PN2006;Computación en Nube;6;3;5;;;Trayectoria Flexible: Innovación Ciber Física
+PN2007;Digitalización de Plantas Productivas;7;3;5;;;Trayectoria Flexible: Innovación Ciber Física
+PN3002;Robótica;9;3;5;;;Trayectoria Flexible: Innovación Ciber Física
+CI4001;Trayectoria Flexible 1;6;3;5;;;Trayectoria Flexible: Genérica
+CI4002;Trayectoria Flexible 2;6;3;5;;;Trayectoria Flexible: Genérica
+CI5001;Trayectoria Flexible 3;7;3;5;;;Trayectoria Flexible: Genérica
+CI5002;Trayectoria Flexible 4;9;3;5;;;Trayectoria Flexible: Genérica
+BL1001;Biología General;6;3;4;;;Trayectoria Flexible: Ciencias Naturales
+BL1003;Biología Celular;6;3;4;;;Trayectoria Flexible: Ciencias Naturales
+GL1001;Geociencias;7;3;4;;;Trayectoria Flexible: Ciencias Naturales
+GL2007;Cambio Climático;9;3;4;;;Trayectoria Flexible: Ciencias Naturales
+SI5002;Procesos Modernos de Desarrollo de Software;9;2;3;PT0306;;Línea de Énfasis: Desarrollo de Software
+SI5003;Arquitecturas Avanzadas de Software;9;2;3;PT0306;;Línea de Énfasis: Desarrollo de Software
+SI5004;Desarrollo de Sistemas Seguros;9;2;3;PT0306;;Línea de Énfasis: Desarrollo de Software
+SI5005;Integración y Entrega Continua de Software;9;2;3;PT0306;;Línea de Énfasis: Desarrollo de Software
+ST1631;Aprendizaje de Máquina Aplicado - Electiva;9;2;2;PT0306;;Línea de Énfasis (Electiva)
+ST1632;Estrategias de Innovación en Ecosistemas Digitales - Electiva;9;2;2;PT0306;;Línea de Énfasis (Electiva)
+ST1633;Diseño de la Experiencia de Usuario - Electiva;9;2;2;PT0306;;Línea de Énfasis (Electiva)
+IN5001;Estrategia de Operaciones y Logística;9;2;3;;;Línea de Énfasis: Direc Operaciones y Logística
+IN5002;Planeación de Ventas y Operaciones;9;2;3;;;Línea de Énfasis: Direc Operaciones y Logística
+IN5003;Gestión de Inventarios;9;2;2;;;Línea de Énfasis: Direc Operaciones y Logística
+IN5004;Gestión de Almacenes;9;2;2;;;Línea de Énfasis: Direc Operaciones y Logística
+IN5005;Compras, Proveedores y Negociación;9;2;2;;;Línea de Énfasis: Direc Operaciones y Logística
+IN5006;Gerencia de Proyectos;9;2;2;;;Línea de Énfasis: Direc Operaciones y Logística

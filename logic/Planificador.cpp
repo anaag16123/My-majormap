@@ -37,7 +37,11 @@ std::map<std::string, std::vector<Materia>> Planificador::todasLasDesbloqueadas(
     return resultado;
 }
 
-std::vector<Propuesta> Planificador::generar(const Grafo& grafo, int cantidad, int maxCreditos) {
+std::vector<Propuesta> Planificador::generar(
+    const Grafo& grafo,
+    int cantidad,
+    int maxCreditos,
+    const std::vector<std::string>& trayectoriasProfesionalizantes) {
     if (cantidad <= 0 || maxCreditos <= 0) {
         throw std::invalid_argument("Cantidad y creditos deben ser enteros positivos");
     }
@@ -60,6 +64,15 @@ std::vector<Propuesta> Planificador::generar(const Grafo& grafo, int cantidad, i
         for (std::size_t i = inicio; i < candidatas.size(); ++i) {
             const Materia& m = candidatas[i];
             if (grafo.estaAprobada(m.getCodigo())) continue;
+            const std::string prefijo = "Trayectoria Profesionalizante: ";
+            if (!trayectoriasProfesionalizantes.empty() &&
+                m.getTipo().compare(0, prefijo.size(), prefijo) == 0 &&
+                std::find(trayectoriasProfesionalizantes.begin(),
+                          trayectoriasProfesionalizantes.end(),
+                          m.getTipo().substr(prefijo.size())) ==
+                    trayectoriasProfesionalizantes.end()) {
+                continue;
+            }
             bool cumple = true;
             for (const std::string& pre : m.getPrerrequisitos()) {
                 if (!grafo.estaAprobada(pre)) { cumple = false; break; }
@@ -112,4 +125,3 @@ void Planificador::ordenarPropuestas(std::vector<Propuesta>& propuestas, bool es
         );
     }
 }
-

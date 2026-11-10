@@ -113,6 +113,13 @@
     font-size: 12px;
 }
 
+.context-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 .context-bar select {
     max-width: 330px;
     border: 1px solid var(--color-border);

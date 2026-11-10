@@ -292,12 +292,37 @@ export function mountPlanner(pensum, planning, handlers) {
     const summary = summarize(pensum);
     const summaryEl = document.getElementById("planner-summary");
     if (summaryEl) {
-        summaryEl.textContent = `${summary.approved} materias aprobadas y ${summary.available} habilitadas en tu catálogo actual.`;
+        summaryEl.textContent = `${summary.approved} materias aprobadas y ${summary.available} habilitadas en ${pensum.nombre}.`;
     }
 
     const count = byId("course-count");
     const credits = byId("credit-limit");
     const prefSelect = document.getElementById("preference-mode");
+    const trajectorySelect = document.getElementById("professional-trajectories");
+    const flexibleText = document.getElementById("flexible-trajectories");
+    const professionalGroups = [...new Set(pensum.materias
+        .filter(course => course.tipo?.startsWith("Trayectoria Profesionalizante: "))
+        .map(course => course.tipo.slice("Trayectoria Profesionalizante: ".length)))];
+    const flexibleGroups = [...new Set(pensum.materias
+        .filter(course => course.tipo?.startsWith("Trayectoria Flexible: "))
+        .map(course => course.tipo.slice("Trayectoria Flexible: ".length)))];
+
+    if (trajectorySelect) {
+        trajectorySelect.replaceChildren();
+        professionalGroups.forEach(group => {
+            const option = createElement("option", "", group);
+            option.value = group;
+            option.selected = planning.trajectories.includes(group);
+            trajectorySelect.append(option);
+        });
+        trajectorySelect.required = professionalGroups.length >= 2;
+        trajectorySelect.disabled = professionalGroups.length < 2;
+    }
+    if (flexibleText) {
+        flexibleText.textContent = flexibleGroups.length
+            ? `Trayectorias flexibles disponibles: ${flexibleGroups.join(", ")}.`
+            : "Esta carrera no tiene trayectorias flexibles registradas.";
+    }
 
     count.value = planning.quantity;
     credits.value = planning.credits;
@@ -314,7 +339,10 @@ export function mountPlanner(pensum, planning, handlers) {
             quantity: Number(count.value),
             credits: Number(credits.value),
             mode: modo,
-            esExigente: modo === "exigente"
+            esExigente: modo === "exigente",
+            trajectories: trajectorySelect
+                ? Array.from(trajectorySelect.selectedOptions, option => option.value)
+                : []
         };
     }
 
@@ -323,6 +351,14 @@ export function mountPlanner(pensum, planning, handlers) {
     [count, credits].forEach(input => input.addEventListener("input", () => {
         handlers.onParametersChange(readParameters(), form.checkValidity());
     }));
+    trajectorySelect?.addEventListener("change", () => {
+        const selected = readParameters().trajectories;
+        if (selected.length > 2) {
+            trajectorySelect.options[trajectorySelect.selectedIndex].selected = false;
+            return;
+        }
+        handlers.onParametersChange(readParameters());
+    });
 
     if (prefSelect) {
         prefSelect.addEventListener("change", () => {
@@ -337,6 +373,10 @@ export function mountPlanner(pensum, planning, handlers) {
 
         if (params.credits > 24) {
             alert("El límite máximo de créditos es 24.");
+            return;
+        }
+        if (professionalGroups.length >= 2 && params.trajectories.length !== 2) {
+            alert("Selecciona exactamente dos trayectorias profesionalizantes.");
             return;
         }
 

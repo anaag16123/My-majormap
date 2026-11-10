@@ -27,10 +27,13 @@
         </div>
     </header>
     <div class="context-bar container">
-        <p><span class="context-dot" aria-hidden="true"></span> Tu espacio para avanzar</p>
-        <label for="career-select">Carrera
-            <select id="career-select" disabled><option>Cargando carreras…</option></select>
-        </label>
+        <p><span class="context-dot" aria-hidden="true"></span> <span id="context-subtitle">Tu espacio para avanzar</span></p>
+        <div class="context-controls">
+            <a href="#pensum" class="button button-secondary button-sm" id="btn-context-config" title="Configurar trayectorias, énfasis y NFI">⚙️ Mis opciones</a>
+            <label for="career-select">Carrera
+                <select id="career-select" disabled><option>Cargando carreras…</option></select>
+            </label>
+        </div>
     </div>
     <div id="app-status" class="container" role="status" aria-live="polite"></div>
     <main id="contenido" class="container page-content" tabindex="-1" aria-busy="true">
