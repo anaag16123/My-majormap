@@ -154,6 +154,4 @@ Las carreras tienen los ids `sistemas`, `matematica` y `fisica`. En carreras con
 | Samu | Caso sin solución: explicación, alternativas y recalcular |
 | Wen | Priorización suave/exigente, formulario y lista de propuestas |
 
-## Créditos
 
-- [cpp-httplib](https://github.com/yhirose/cpp-httplib) (MIT), incluida en `web/httplib.h`.
